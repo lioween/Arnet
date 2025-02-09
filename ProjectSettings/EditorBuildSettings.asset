@@ -1,0 +1,270 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1045 &1
+EditorBuildSettings:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Scenes:
+  - enabled: 1
+    path: Assets/Scenes/SplashScreen.unity
+    guid: a3437a716cf7ebc49a4f81846c727502
+  - enabled: 1
+    path: Assets/Scenes/SplashScreen 1.unity
+    guid: 77132f03a9ba1464790bc41cb0049587
+  - enabled: 1
+    path: Assets/Scenes/Login.unity
+    guid: 9fc0d4010bbf28b4594072e72b8655ab
+  - enabled: 1
+    path: Assets/Scenes/Welcome.unity
+    guid: 2401908889e2d0c4d91a0acfb6f91e85
+  - enabled: 1
+    path: Assets/Scenes/Register.unity
+    guid: 0e064b506f0f1e04d9113c4a1cb5421f
+  - enabled: 1
+    path: Assets/Scenes/Forgot.unity
+    guid: 5de5e79e28a1119448e96803d4d51fad
+  - enabled: 1
+    path: Assets/Scenes/Home.unity
+    guid: 16fb7bb147e26d04a82276b27902f7f1
+  - enabled: 1
+    path: Assets/Scenes/1. Introduction to Networking/1.0.unity
+    guid: eb4b7d7512168ae4f8e67cc770207792
+  - enabled: 1
+    path: Assets/Scenes/Exercises.unity
+    guid: 812d79d88aa8f7945bef3176512df06b
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Catalog.unity
+    guid: 02a7aa3cea9b1a04dbea0d12cf696d3e
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Cables.unity
+    guid: 5b3304607c476e346a6b655e38e7c161
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network Devices/Network-Devices.unity
+    guid: 84e5b7e68b2751b4cb5c4f459454423d
+  - enabled: 1
+    path: Assets/Scenes/Catalog/End-Devices.unity
+    guid: 90512be77a7a9b0408dcebac56c06970
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Equipment.unity
+    guid: 7a4badf93a071834692a87f07d9803d4
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network Devices/Router.unity
+    guid: e45ad542b9e4c70439da743429ad36a7
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network Devices/Switch.unity
+    guid: 8afe7c7ef4888674f86c5c62ece4dcf8
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network Devices/SwitchAR.unity
+    guid: 0de9b4938fc80e043be4efbae7a3eea3
+  - enabled: 1
+    path: Assets/Scenes/Profile.unity
+    guid: 780c80e03516fef4993ee4c29469447f
+  - enabled: 1
+    path: Assets/Scenes/Bookmarks.unity
+    guid: d286bff036f10f544ab858bdce6b96a2
+  - enabled: 1
+    path: Assets/Scenes/1. Introduction to Networking/1.1.unity
+    guid: 6b4b9e786ae5f7a4ea8b3426dad873dd
+  - enabled: 1
+    path: Assets/Scenes/1. Introduction to Networking/1.2.unity
+    guid: d876fcde22b51554e922f4bac39f558a
+  - enabled: 1
+    path: Assets/Scenes/1. Introduction to Networking/1.3.unity
+    guid: db76ea8d54b66d54798d43b52ded3d30
+  - enabled: 1
+    path: Assets/Scenes/1. Introduction to Networking/1.4.unity
+    guid: 9de25074ce9a09842a20bd5a7ca86bbb
+  - enabled: 1
+    path: Assets/Scenes/1. Introduction to Networking/1.5.unity
+    guid: f6f8dc48994a4f84bab28c5244a63fe8
+  - enabled: 1
+    path: Assets/Scenes/1. Introduction to Networking/E 1.1.unity
+    guid: 31cc27d1b5cd0eb43adc1119c4e19f00
+  - enabled: 1
+    path: Assets/Scenes/1. Introduction to Networking/E 1.2.unity
+    guid: 5cfbbc0954ee80a4fafca5ed16d58e09
+  - enabled: 1
+    path: Assets/Scenes/2. Types of Networks/2.0.unity
+    guid: c57011085056bf148851ca8bc603fbc2
+  - enabled: 1
+    path: Assets/Scenes/2. Types of Networks/2.1.unity
+    guid: 218cfe33851479142895c247d6e41395
+  - enabled: 1
+    path: Assets/Scenes/2. Types of Networks/2.2.unity
+    guid: a6edc233ffe6fb04f9e14ea797920b82
+  - enabled: 1
+    path: Assets/Scenes/2. Types of Networks/2.3.unity
+    guid: 770333617db907a4ab8b37ec7cee0d68
+  - enabled: 1
+    path: Assets/Scenes/2. Types of Networks/2.4.unity
+    guid: 061cdee866abd3048ba5588ade045473
+  - enabled: 1
+    path: Assets/Scenes/2. Types of Networks/2.5.unity
+    guid: dfbc854e3b328ea4898b6900f9802f09
+  - enabled: 1
+    path: Assets/Scenes/2. Types of Networks/E 2.1.unity
+    guid: eb96f384f2bac3d46a2a185c98a6f56a
+  - enabled: 1
+    path: Assets/Scenes/3. Networking Devices/3.0.unity
+    guid: 0574a975781dfa34991d51126003986c
+  - enabled: 1
+    path: Assets/Scenes/3. Networking Devices/3.1.unity
+    guid: 090a628208081814ca9c10a0f184d619
+  - enabled: 1
+    path: Assets/Scenes/3. Networking Devices/3.2.unity
+    guid: 0399e073c3e387b45902980562c6ec1d
+  - enabled: 1
+    path: Assets/Scenes/3. Networking Devices/3.5.unity
+    guid: 05a7c5986d3aae6499ac7e6ae037a025
+  - enabled: 1
+    path: Assets/Scenes/3. Networking Devices/3.3.unity
+    guid: 482748adf72886c4cb7abb9cb80c4222
+  - enabled: 1
+    path: Assets/Scenes/3. Networking Devices/3.4.unity
+    guid: cfbcd43b12ad5f946b9aac20d8b0e08a
+  - enabled: 1
+    path: Assets/Scenes/3. Networking Devices/E 3.1.unity
+    guid: 523bdd71c22dccc4f902f4ce0ff1da49
+  - enabled: 1
+    path: Assets/Scenes/4. Network Topologies/4.0.unity
+    guid: 3f16892352c986f4397060067d89e1c4
+  - enabled: 1
+    path: Assets/Scenes/4. Network Topologies/4.1.unity
+    guid: b1f34ea4cb3f20d40962581ff80c82c1
+  - enabled: 1
+    path: Assets/Scenes/4. Network Topologies/4.2.unity
+    guid: f355e323730380f4ba751adc36a329a1
+  - enabled: 1
+    path: Assets/Scenes/4. Network Topologies/4.3.unity
+    guid: 0c16ee807ecc2584e97e7ee4ca4e954d
+  - enabled: 1
+    path: Assets/Scenes/4. Network Topologies/4.4.unity
+    guid: f1f278e4a66bfbb448d69302b0fd56aa
+  - enabled: 1
+    path: Assets/Scenes/4. Network Topologies/4.5.unity
+    guid: c9fc9168becb983488b2faf6c44ac767
+  - enabled: 1
+    path: Assets/Scenes/Simulation.unity
+    guid: 2452efd6546329643990d62f8b723ac7
+  - enabled: 1
+    path: Assets/Scenes/5. IP Addressing and Subnetting/5.0.unity
+    guid: de62f71b5e9d3bf4f93a51c8fcad2469
+  - enabled: 1
+    path: Assets/Scenes/5. IP Addressing and Subnetting/5.1.unity
+    guid: 39f14f9a4b029c04dbec46f657f57971
+  - enabled: 1
+    path: Assets/Scenes/5. IP Addressing and Subnetting/5.2.unity
+    guid: da0d72e5782bcda4a8db43151b0dcb1d
+  - enabled: 1
+    path: Assets/Scenes/5. IP Addressing and Subnetting/5.3.unity
+    guid: f24c9be1fee8a5e45890c5db7ac4d41c
+  - enabled: 1
+    path: Assets/Scenes/5. IP Addressing and Subnetting/5.4.unity
+    guid: 8d4cdf9d072446141a9760055f0d64ba
+  - enabled: 1
+    path: Assets/Scenes/5. IP Addressing and Subnetting/5.5.unity
+    guid: 5e564c5c981cf4248a0c6975ed5bb894
+  - enabled: 1
+    path: Assets/Scenes/5. IP Addressing and Subnetting/E 5.1.unity
+    guid: 87511177dc18f734fbaab5695630858b
+  - enabled: 1
+    path: Assets/Scenes/6. Protocols and Communication Standards/6.0.unity
+    guid: 1ba829b4267bb6e43bfaad0f86a0766b
+  - enabled: 1
+    path: Assets/Scenes/6. Protocols and Communication Standards/6.1.unity
+    guid: 88fe8ccbecceb3643834126d1ea09dd1
+  - enabled: 1
+    path: Assets/Scenes/6. Protocols and Communication Standards/6.2.unity
+    guid: 9108904256f336945bd3325f29569fd9
+  - enabled: 1
+    path: Assets/Scenes/6. Protocols and Communication Standards/6.3.unity
+    guid: 7e3596a4025687b40a050251e8b1d27c
+  - enabled: 1
+    path: Assets/Scenes/6. Protocols and Communication Standards/6.4.unity
+    guid: d6ac1f9dd547a9a41b5379cd1bd12b8f
+  - enabled: 1
+    path: Assets/Scenes/6. Protocols and Communication Standards/6.5.unity
+    guid: b3b87a3168bf25c44af682b32b8e2e74
+  - enabled: 1
+    path: Assets/Scenes/7. Data Transmission Methods/7.0.unity
+    guid: 28037993094529e4787c4b86e8f03352
+  - enabled: 1
+    path: Assets/Scenes/7. Data Transmission Methods/7.1.unity
+    guid: 395fa603c0bc1694c98985b3c1b15dc7
+  - enabled: 1
+    path: Assets/Scenes/7. Data Transmission Methods/7.2.unity
+    guid: 474629dfbe3979b409d450a887af8709
+  - enabled: 1
+    path: Assets/Scenes/7. Data Transmission Methods/7.3.unity
+    guid: 1ee5b2ce4e566e746a0d3f83540e6346
+  - enabled: 1
+    path: Assets/Scenes/7. Data Transmission Methods/7.4.unity
+    guid: 32dd8e4d14f6d424098b32ef218826d7
+  - enabled: 1
+    path: Assets/Scenes/7. Data Transmission Methods/7.5.unity
+    guid: 412c30c21a1d6f840a8771fae93f52a9
+  - enabled: 1
+    path: Assets/Scenes/8. Network Security/8.0.unity
+    guid: afdd59d7e365ef147a1c722bd3fe036b
+  - enabled: 1
+    path: Assets/Scenes/8. Network Security/8.1.unity
+    guid: c1ee40dcf31601a43babfe37f20f695e
+  - enabled: 1
+    path: Assets/Scenes/8. Network Security/8.2.unity
+    guid: f30db85cf05f0294ab0c40e02d08125e
+  - enabled: 1
+    path: Assets/Scenes/8. Network Security/8.3.unity
+    guid: a98799f397dba034d93aa15a4e4f1d82
+  - enabled: 1
+    path: Assets/Scenes/8. Network Security/8.4.unity
+    guid: 85bba93e98406e14daa4117ecbd07bb6
+  - enabled: 1
+    path: Assets/Scenes/8. Network Security/8.5.unity
+    guid: 6c58936359e29df4f92e304e148c2dff
+  - enabled: 1
+    path: Assets/Scenes/9. Network Services and Applications/9.0.unity
+    guid: 19e53b1fec9b0844bad94e3f60b5069c
+  - enabled: 1
+    path: Assets/Scenes/9. Network Services and Applications/9.1.unity
+    guid: 266a9f019774a24479991a297a27ce7b
+  - enabled: 1
+    path: Assets/Scenes/9. Network Services and Applications/9.2.unity
+    guid: 1763c2b4c3b5d164e9446ea29e528cc3
+  - enabled: 1
+    path: Assets/Scenes/9. Network Services and Applications/9.3.unity
+    guid: e455dbaa0de88914eb398f6cad0ec8fa
+  - enabled: 1
+    path: Assets/Scenes/9. Network Services and Applications/9.4.unity
+    guid: 98f1390c560a9ac499835ac78110170d
+  - enabled: 1
+    path: Assets/Scenes/9. Network Services and Applications/9.5.unity
+    guid: 4b6d761db50415d4da727b55aae8dfa0
+  - enabled: 1
+    path: Assets/Scenes/10. Troubleshooting and Maintenance/10.0.unity
+    guid: 52b7119ca1e21264f8423648b38888da
+  - enabled: 1
+    path: Assets/Scenes/10. Troubleshooting and Maintenance/10.1.unity
+    guid: b71e2af6a90a8bc438bf413f01fbbf41
+  - enabled: 1
+    path: Assets/Scenes/10. Troubleshooting and Maintenance/10.2.unity
+    guid: 4f686a9b4696724418c0e030f07ba6e4
+  - enabled: 1
+    path: Assets/Scenes/10. Troubleshooting and Maintenance/10.3.unity
+    guid: 8edca189ca74ace4fa11a773e87d20e6
+  - enabled: 1
+    path: Assets/Scenes/10. Troubleshooting and Maintenance/10.4.unity
+    guid: adce082c833738c46a01354dddb4b22f
+  - enabled: 1
+    path: Assets/Scenes/10. Troubleshooting and Maintenance/10.5.unity
+    guid: 5969bb8c87f585f429ea028b30e6f65d
+  - enabled: 1
+    path: Assets/Scenes/Badges.unity
+    guid: 5a1f550fb19614f46a5218367dcd04f6
+  m_configObjects:
+    UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 325820886b7993e4c8118e8c4d5639ea, type: 2}
+    com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: d020a229620ce2e4e9e092a8d19e8181, type: 2}
+    com.unity.adaptiveperformance.loader_settings: {fileID: 11400000, guid: fb3250226d6ce5d47af9539abf6f1d7a, type: 2}
+    com.unity.adaptiveperformance.samsung.android.provider_settings: {fileID: 11400000, guid: c2b2b603420b9a34499db0e91c2c7a3f, type: 2}
+    com.unity.adaptiveperformance.simulator.provider_settings: {fileID: 11400000, guid: 657b1f83a7ca6cc4e9838a694ca37880, type: 2}
+    com.unity.xr.arfoundation.simulation_settings: {fileID: 11400000, guid: c8118fdebc7355444a930e50b497bcf9, type: 2}
+    com.unity.xr.management.loader_settings: {fileID: 11400000, guid: bf69a5c204263fa42969ee4ba3f82db7, type: 2}

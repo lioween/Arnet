@@ -1,0 +1,21 @@
+# Unity generated files
+Library/
+Temp/
+Obj/
+Build/
+Builds/
+UserSettings/
+
+# User-specific files
+.idea/
+.vscode/
+
+# Windows
+Thumbs.db
+desktop.ini
+
+# macOS
+.DS_Store
+
+# Log files
+*.log

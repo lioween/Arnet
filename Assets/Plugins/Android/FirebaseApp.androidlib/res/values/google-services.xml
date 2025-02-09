@@ -1,0 +1,11 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources xmlns:tools="http://schemas.android.com/tools" tools:keep="@string/gcm_defaultSenderId,@string/google_storage_bucket,@string/project_id,@string/google_api_key,@string/google_crash_reporting_api_key,@string/google_app_id,@string/default_android_client_id,@string/default_web_client_id">
+  <string name="gcm_defaultSenderId" translatable="false">669840688035</string>
+  <string name="google_storage_bucket" translatable="false">arnet-qcu-a0f45.firebasestorage.app</string>
+  <string name="project_id" translatable="false">arnet-qcu-a0f45</string>
+  <string name="google_api_key" translatable="false">AIzaSyDQnVlgsGXT7UNTcY1-hY7mJouUlfLZQsU</string>
+  <string name="google_crash_reporting_api_key" translatable="false">AIzaSyDQnVlgsGXT7UNTcY1-hY7mJouUlfLZQsU</string>
+  <string name="google_app_id" translatable="false">1:669840688035:android:439af19249b94862fa5016</string>
+  <string name="default_android_client_id" translatable="false">669840688035-sj3qg4ob1jghf8c7hq5gdsvi47r6b2cb.apps.googleusercontent.com</string>
+  <string name="default_web_client_id" translatable="false">669840688035-jaj1rh6ou6vr1ifjhatbuffqbud3uvqs.apps.googleusercontent.com</string>
+</resources>
