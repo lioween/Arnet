@@ -13,6 +13,12 @@ public class ExerciseLoader : MonoBehaviour
     private FirebaseUser user;
     public GameObject loadingUI;
 
+    public RectTransform contentRectTransform;
+    public GameObject lastPnlexercise;
+
+    public float heightIfActive = 2191.954f;
+    public float heightIfInactive = 2880.225f;
+
     [Header("UI Settings")]
     [SerializeField] private ScrollRect scrollView; // Reference to the ScrollView component
 
@@ -83,6 +89,7 @@ public class ExerciseLoader : MonoBehaviour
 
     private IEnumerator CheckFirestoreData(CollectionReference collectionRef, List<DocumentReference> documentRefs, Button button)
     {
+        // Show the loading panel at the start
 
         // Step 1: Check if the collection exists (has any documents)
         var collectionTask = collectionRef.Limit(1).GetSnapshotAsync();
@@ -105,7 +112,9 @@ public class ExerciseLoader : MonoBehaviour
         Transform txtResultTransform = button.transform.Find("txtResult");
         TMP_Text txtResult = txtResultTransform != null ? txtResultTransform.GetComponent<TMP_Text>() : null;
 
-        // Step 2: Check if any of the documents exist (do NOT disable if one is missing)
+        bool allDocumentsChecked = true;  // Flag to track if all documents have been processed
+
+        // Step 2: Check if any of the documents exist
         foreach (var documentRef in documentRefs)
         {
             var documentTask = documentRef.GetSnapshotAsync();
@@ -117,7 +126,6 @@ public class ExerciseLoader : MonoBehaviour
                 if (documentSnapshot.Exists)
                 {
                     button.interactable = true;
-                    loadingUI.SetActive(false); // Hide the loading UI
                     Debug.Log($"✅ Document '{documentRef.Id}' exists for button '{button.name}'.");
 
                     if (documentSnapshot.ContainsField("status"))
@@ -140,14 +148,58 @@ public class ExerciseLoader : MonoBehaviour
                     {
                         txtResult.text = "";
                     }
-                    // **Break early** if we find one existing document (to save Firestore reads)
-                    break;
                 }
+            }
+            else
+            {
+                allDocumentsChecked = false;  // If any document has a fault or error, set this to false
+                Debug.LogWarning($"Error checking document: {documentRef.Id}");
             }
         }
 
-        
+        // Hide the loading panel after everything is done or if error occurred
+        if (allDocumentsChecked)
+        {
+            Debug.Log("✅ All documents have been checked.");
+        }
+        else
+        {
+            Debug.LogWarning("⚠️ Some documents couldn't be checked.");
+        }
 
+        loadingUI.SetActive(false);  // Hide the loading panel when everything is done
     }
 
+
+
+
+    public void lastButton()
+    {
+        if (contentRectTransform != null)
+        {
+            // Get the current width of the content
+            float currentWidth = contentRectTransform.sizeDelta.x;
+
+            // Check if the last panel is active or not in the scene (even if it's disabled in the inspector)
+            bool isPanelActive = lastPnlexercise.activeInHierarchy;
+
+            // Decide the new height based on the active state of the panel
+            float newHeight = isPanelActive ? heightIfInactive : heightIfActive;
+
+            // Set the new size (width remains the same, adjust height)
+            contentRectTransform.sizeDelta = new Vector2(currentWidth, newHeight);
+            // Auto-scroll to the bottom after resizing
+            StartCoroutine(ScrollToBottom());
+        }
+    }
+
+    IEnumerator ScrollToBottom()
+    {
+        // Wait for the next frame so that Unity updates the layout
+        yield return new WaitForEndOfFrame();
+
+        // Set the vertical scroll position to 0 (bottom)
+        scrollView.verticalNormalizedPosition = 0f;
+    }
 }
+
