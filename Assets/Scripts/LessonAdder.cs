@@ -42,6 +42,11 @@ public class LessonAdder : MonoBehaviour
         }
     }
 
+    public void AddLesson()
+    {
+        StartCoroutine(AddCollection());
+    }
+
     private IEnumerator AddCollection()
     {
         if (currentUser == null)

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using Firebase.Extensions;
@@ -15,6 +15,7 @@ public class DisplayFirstName : MonoBehaviour
     private FirebaseAuth auth;
     private FirebaseFirestore firestore;
     private FirebaseUser user;
+    public GameObject pnlTutorial;
     public GameObject loadingUI;
 
     public Slider progressSlider; // Assign the slider in the Unity Inspector
@@ -42,6 +43,8 @@ public class DisplayFirstName : MonoBehaviour
             string userId = user.UserId;
             StartCoroutine(FetchAndDisplayFirstName(userId));
             StartCoroutine(CheckButtonsVisibility());
+            StartCoroutine(LoadTutorial(userId));
+
         }
         else
         {
@@ -63,6 +66,34 @@ public class DisplayFirstName : MonoBehaviour
         else
         {
             Debug.LogError("ScrollView is not assigned in the Inspector.");
+        }
+    }
+
+    private IEnumerator LoadTutorial(string userId)
+    {
+
+        loadingUI.SetActive(true);
+        CollectionReference collectionRef = firestore.Collection("profile").Document(userId).Collection("1.0");
+        var queryTask = collectionRef.Limit(1).GetSnapshotAsync();
+
+        yield return new WaitUntil(() => queryTask.IsCompleted);
+        loadingUI.SetActive(false);
+
+        if (queryTask.Exception != null)
+        {
+            Debug.LogError($"❌ Error checking Firestore collection: {queryTask.Exception}");
+            yield break;
+        }
+
+        QuerySnapshot querySnapshot = queryTask.Result;
+
+        if (querySnapshot.Count == 0)
+        {
+                pnlTutorial.SetActive(true);
+        }
+        else
+        {
+                pnlTutorial.SetActive(false);
         }
     }
 

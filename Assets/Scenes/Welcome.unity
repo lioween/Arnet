@@ -1024,7 +1024,6 @@ GameObject:
   - component: {fileID: 1889786457}
   - component: {fileID: 1889786456}
   - component: {fileID: 1889786455}
-  - component: {fileID: 1889786458}
   m_Layer: 5
   m_Name: btnGetstarted
   m_TagString: Untagged
@@ -1095,7 +1094,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1889786456}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 5513341773210212363, guid: 129475b6332ec524e83d9d073efb7df3, type: 3}
+        m_TargetAssemblyTypeName: BackButton, Assembly-CSharp
+        m_MethodName: LoadSceneByName
+        m_Mode: 5
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Home
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1889786456
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1134,20 +1145,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1889786453}
   m_CullTransparentMesh: 1
---- !u!114 &1889786458
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1889786453}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f0ea35a925841fe48846471906b0d677, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  collectionName: 1.0
-  documentName: 1.1
 --- !u!1 &1954500321
 GameObject:
   m_ObjectHideFlags: 0
