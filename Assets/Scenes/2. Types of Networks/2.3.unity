@@ -869,10 +869,10 @@ RectTransform:
   - {fileID: 1910060720}
   m_Father: {fileID: 1463939762}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 105.7593}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 359.45374, y: -6034.36}
+  m_SizeDelta: {x: 718.9075, y: 105.7593}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &705780967
 MonoBehaviour:
@@ -1275,8 +1275,8 @@ MonoBehaviour:
     connect to cloud service providers like Google Cloud, Amazon AWS, or Microsoft
     Azure.\r\n\u2022 This allows employees to access shared resources and data stored
     in data centers located far from their physical office.\r\n\r\n<b>4. Remote Access
-    for Employees:<b>\r\n\u2022 WANs enable remote workers to connect to a company's
-    internal network securely via VPNs, allowing them to work from anywhere.\r\n\r\n"
+    for Employees:</b>\r\n\u2022 WANs enable remote workers to connect to a company's
+    internal network securely via VPNs, allowing them to work from anywhere.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d616741d7ff066a499eb3d6db5d77dcc, type: 2}
   m_sharedMaterial: {fileID: -2352361283333279779, guid: d616741d7ff066a499eb3d6db5d77dcc, type: 2}
@@ -1369,8 +1369,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 359.45374, y: -3190.38}
-  m_SizeDelta: {x: 718.9075, y: 0}
+  m_AnchoredPosition: {x: 359.45374, y: -2965.74}
+  m_SizeDelta: {x: 718.9075, y: 5931.48}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &953023649
 MonoBehaviour:

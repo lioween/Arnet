@@ -2891,7 +2891,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 397de34c352ba234abe3cad2d022a63c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  firestoreCollectionName: 1.0
+  firestoreCollectionName: 9.0
   scrollView: {fileID: 334926981}
   loadingUI: {fileID: 454403912}
 --- !u!4 &1299342688

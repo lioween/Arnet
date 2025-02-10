@@ -125,6 +125,7 @@
     <Compile Include="Assets\GoogleSignIn\GoogleSignInConfiguration.cs" />
     <Compile Include="Assets\Scripts\NextToggle.cs" />
     <Compile Include="Assets\Scenes\Simulation\another scripts\ConnectionManager.cs" />
+    <Compile Include="Assets\Scripts\DragButton.cs" />
     <Compile Include="Assets\GoogleSignIn\Impl\NativeFuture.cs" />
   </ItemGroup>
   <ItemGroup>

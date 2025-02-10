@@ -869,10 +869,10 @@ RectTransform:
   - {fileID: 1910060720}
   m_Father: {fileID: 1463939762}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 105.7593}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 359.45374, y: -6633.4}
+  m_SizeDelta: {x: 718.9075, y: 105.7593}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &705780967
 MonoBehaviour:
@@ -1192,6 +1192,7 @@ GameObject:
   - component: {fileID: 953023648}
   - component: {fileID: 953023647}
   - component: {fileID: 953023646}
+  - component: {fileID: 953023649}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1279,7 +1280,7 @@ MonoBehaviour:
     A hybrid topology combines elements of different topologies, such as a combination
     of star and bus.\r\n\u2022 Advantages:\r\n- Provides flexibility to adapt to
     changing needs.\r\n- Suitable for large organizations with diverse requirements.\r\n\u2022
-    Disadvantages:\r\n- More complex to configure and maintain.\r\n\r\n"
+    Disadvantages:\r\n- More complex to configure and maintain.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d616741d7ff066a499eb3d6db5d77dcc, type: 2}
   m_sharedMaterial: {fileID: -2352361283333279779, guid: d616741d7ff066a499eb3d6db5d77dcc, type: 2}
@@ -1370,11 +1371,25 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1463939762}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 5729.9}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 359.45374, y: -3265.26}
+  m_SizeDelta: {x: 718.9075, y: 6530.52}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &953023649
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 953023645}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_HorizontalFit: 0
+  m_VerticalFit: 2
 --- !u!1 &982642036
 GameObject:
   m_ObjectHideFlags: 0
