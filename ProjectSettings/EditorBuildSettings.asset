@@ -263,6 +263,18 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/4. Network Topologies/E 4.1.unity
     guid: e858ece281c44ea44a5f4d31fa7f3462
+  - enabled: 1
+    path: Assets/Scenes/6. Protocols and Communication Standards/E 6.1.unity
+    guid: 9286840c45de5cf4cab7dbaacd259e10
+  - enabled: 1
+    path: Assets/Scenes/2. Types of Networks/E 2.4.unity
+    guid: 42132fdf5c4afbd4eb29c4de55c6961b
+  - enabled: 1
+    path: Assets/Scenes/3. Networking Devices/E 3.4.unity
+    guid: e3d957fa45b88d04db6ce9c43c5dbded
+  - enabled: 1
+    path: Assets/Scenes/6. Protocols and Communication Standards/E 6.4.unity
+    guid: d54eb6706657c7d438431e9a7575e7fe
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 325820886b7993e4c8118e8c4d5639ea, type: 2}
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: d020a229620ce2e4e9e092a8d19e8181, type: 2}
