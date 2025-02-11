@@ -14,10 +14,11 @@ public class ExerciseLoader : MonoBehaviour
     public GameObject loadingUI;
 
     public RectTransform contentRectTransform;
+    public GameObject eighthPnlexercise;
+    public GameObject ninthPnlexercise;
     public GameObject lastPnlexercise;
 
-    public float heightIfActive = 2191.954f;
-    public float heightIfInactive = 2880.225f;
+  
 
     [Header("UI Settings")]
     [SerializeField] private ScrollRect scrollView; // Reference to the ScrollView component
@@ -89,7 +90,6 @@ public class ExerciseLoader : MonoBehaviour
 
     private IEnumerator CheckFirestoreData(CollectionReference collectionRef, List<DocumentReference> documentRefs, Button button)
     {
-        // Show the loading panel at the start
 
         // Step 1: Check if the collection exists (has any documents)
         var collectionTask = collectionRef.Limit(1).GetSnapshotAsync();
@@ -149,6 +149,10 @@ public class ExerciseLoader : MonoBehaviour
                         txtResult.text = "";
                     }
                 }
+                else
+                {
+                    loadingUI.SetActive(false);  // Hide the loading panel when everything is done
+                }
             }
             else
             {
@@ -167,10 +171,47 @@ public class ExerciseLoader : MonoBehaviour
             Debug.LogWarning("⚠️ Some documents couldn't be checked.");
         }
 
-        loadingUI.SetActive(false);  // Hide the loading panel when everything is done
     }
 
+    public void eighthButton()
+    {
+        if (contentRectTransform != null)
+        {
+            // Get the current width of the content
+            float currentWidth = contentRectTransform.sizeDelta.x;
 
+            // Check if the last panel is active or not in the scene (even if it's disabled in the inspector)
+            bool isPanelActive = eighthPnlexercise.activeInHierarchy;
+
+            // Decide the new height based on the active state of the panel
+            float newHeight = isPanelActive ? 2463.239f : 2191.954f;
+
+            // Set the new size (width remains the same, adjust height)
+            contentRectTransform.sizeDelta = new Vector2(currentWidth, newHeight);
+            // Auto-scroll to the bottom after resizing
+            StartCoroutine(ScrollToBottom());
+        }
+    }
+
+    public void ninthButton()
+    {
+        if (contentRectTransform != null)
+        {
+            // Get the current width of the content
+            float currentWidth = contentRectTransform.sizeDelta.x;
+
+            // Check if the last panel is active or not in the scene (even if it's disabled in the inspector)
+            bool isPanelActive = ninthPnlexercise.activeInHierarchy;
+
+            // Decide the new height based on the active state of the panel
+            float newHeight = isPanelActive ? 2676.979f : 2191.954f;
+
+            // Set the new size (width remains the same, adjust height)
+            contentRectTransform.sizeDelta = new Vector2(currentWidth, newHeight);
+            // Auto-scroll to the bottom after resizing
+            StartCoroutine(ScrollToBottom());
+        }
+    }
 
 
     public void lastButton()
@@ -184,7 +225,7 @@ public class ExerciseLoader : MonoBehaviour
             bool isPanelActive = lastPnlexercise.activeInHierarchy;
 
             // Decide the new height based on the active state of the panel
-            float newHeight = isPanelActive ? heightIfInactive : heightIfActive;
+            float newHeight = isPanelActive ? 2880.225f : 2191.954f;
 
             // Set the new size (width remains the same, adjust height)
             contentRectTransform.sizeDelta = new Vector2(currentWidth, newHeight);

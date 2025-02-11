@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Login.cs" />
     <Compile Include="Assets\Scripts\GoogleLogin.cs" />
     <Compile Include="Assets\Scenes\Simulation\another scripts\ModelInteractionManager.cs" />
+    <Compile Include="Assets\Scenes\E 1.3\PacketCreator.cs" />
     <Compile Include="Assets\Scenes\Simulation\animation script\PanelController.cs" />
     <Compile Include="Assets\Scripts\BookmarkManager.cs" />
     <Compile Include="Assets\Scripts\CatalogVideo.cs" />
@@ -82,6 +83,7 @@
     <Compile Include="Assets\GoogleSignIn\Future.cs" />
     <Compile Include="Assets\Scenes\Simulation\NetworkMessage.cs" />
     <Compile Include="Assets\Scripts\PlaceOnIndicator\PlaceOnIndicator.cs" />
+    <Compile Include="Assets\Scenes\E 1.3\RotateAndReset.cs" />
     <Compile Include="Assets\GoogleSignIn\Impl\BaseObject.cs" />
     <Compile Include="Assets\Scripts\ExerciseLoader.cs" />
     <Compile Include="Assets\Scripts\LoadingAnimation.cs" />
