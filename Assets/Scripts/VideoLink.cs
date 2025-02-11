@@ -41,6 +41,19 @@ public class FirebaseWebView : MonoBehaviour
             panelImage.color = transparentColor;
         }
 
+        Button panelButton = panel.GetComponentInChildren<Button>(); // ✅ Get the Button component
+        if (panelButton != null)
+        {
+            Image buttonImage = panelButton.image; // ✅ Get the Image component of the Button
+            if (buttonImage != null)
+            {
+                Color newColor = buttonImage.color; // ✅ Retrieve the current color
+                newColor.a = 0f; // ✅ Modify the alpha value
+                buttonImage.color = newColor; // ✅ Apply the modified color
+            }
+        }
+
+
     }
 
     public void StopVideo()
@@ -63,6 +76,18 @@ public class FirebaseWebView : MonoBehaviour
 
             // ✅ Reassign the modified color back to the Image component
             panelImage.color = transparentColor;
+        }
+
+        Button panelButton = panel.GetComponentInChildren<Button>(); // ✅ Get the Button component
+        if (panelButton != null)
+        {
+            Image buttonImage = panelButton.image; // ✅ Get the Image component of the Button
+            if (buttonImage != null)
+            {
+                Color newColor = buttonImage.color; // ✅ Retrieve the current color
+                newColor.a = 255f; // ✅ Modify the alpha value
+                buttonImage.color = newColor; // ✅ Apply the modified color
+            }
         }
 
         panel.gameObject.SetActive(true); // Show panel again
