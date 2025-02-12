@@ -1900,7 +1900,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Favorites
+  m_text: Bookmarks
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 3f10426a82a9b2f408e81ddd8d9a8c39, type: 2}
   m_sharedMaterial: {fileID: 1769137583757555166, guid: 3f10426a82a9b2f408e81ddd8d9a8c39, type: 2}

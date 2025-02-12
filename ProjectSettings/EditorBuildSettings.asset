@@ -33,7 +33,7 @@ EditorBuildSettings:
     path: Assets/Scenes/Exercises.unity
     guid: 812d79d88aa8f7945bef3176512df06b
   - enabled: 1
-    path: Assets/Scenes/Catalog/Catalog.unity
+    path: Assets/Scenes/Catalog.unity
     guid: 02a7aa3cea9b1a04dbea0d12cf696d3e
   - enabled: 1
     path: Assets/Scenes/Catalog/Cables.unity

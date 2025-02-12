@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 using UnityEngine.EventSystems;
 using System.Linq;
+using System.Text.RegularExpressions;
 
 public class LockedButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerUpHandler, IDragHandler
 {
@@ -15,7 +16,7 @@ public class LockedButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerU
 
     private bool isDragging = false;
     private Vector2 pointerDownPosition;
-    private const float dragThreshold = 10f; // ✅ Prevent clicks if movement exceeds this
+    private const float dragThreshold = 10f; // Prevent clicks if movement exceeds this
 
     void Start()
     {
@@ -29,24 +30,37 @@ public class LockedButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerU
 
         foreach (Button button in buttons)
         {
-            button.onClick.AddListener(() => OnLockedButtonClicked(button));
+            
+                if (button.interactable)
+                {
+                    // ✅ Normal interactable buttons work as expected
+                    button.onClick.AddListener(() => Debug.Log($"Interactable button {button.name} clicked!"));
+                
+            }
         }
     }
 
     public void OnPointerDown(PointerEventData eventData)
     {
         pointerDownPosition = eventData.position;
-        isDragging = false; // ✅ Reset drag state
+        isDragging = false; // Reset drag state
     }
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (!isDragging) // ✅ Only trigger click if no drag occurred
+        if (!isDragging) // Ensure it's not a drag operation
         {
-            Button button = eventData.pointerPress?.GetComponent<Button>();
+            Button button = eventData.pointerEnter?.GetComponent<Button>();
             if (button != null)
             {
-                button.onClick.Invoke();
+                if (button.interactable == true)
+                {
+                    button.onClick.Invoke(); // Normal button click
+                }
+                else
+                {
+                    OnLockedButtonClicked(button);
+                }
             }
         }
     }
@@ -55,23 +69,17 @@ public class LockedButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerU
     {
         if (Vector2.Distance(pointerDownPosition, eventData.position) > dragThreshold)
         {
-            isDragging = true; // ✅ Mark as drag if movement exceeds threshold
+            isDragging = true; // Mark as drag if movement exceeds threshold
         }
     }
 
 
-
-private void OnLockedButtonClicked(Button button)
+    private void OnLockedButtonClicked(Button button)
     {
-        if (button.interactable)
-        {
-            Debug.Log($"Button {button.name} is interactable, ignoring locked panel.");
-            return;
-        }
+       
 
         if (lockedPanel != null)
         {
-
             Button highestButton = GetHighestInteractableButton();
 
             if (txtComplete != null && highestButton != null)
@@ -80,14 +88,13 @@ private void OnLockedButtonClicked(Button button)
 
                 if (buttonText != null)
                 {
-                    string firstLine = StripRichTextTags(FormatLineAsSentence(buttonText.text, 1)); // Get First Line
-                    string thirdLine = FormatLineAsSentence(buttonText.text, 3); // Get Third Line
-                    string fourthLine = FormatLineAsSentence(buttonText.text, 4); // Get Third Line
-                    string fifthLine = FormatLineAsSentence(buttonText.text, 5); // Get Third Line
+                    string firstLine = StripRichTextTags(FormatLineAsSentence(buttonText.text, 1));
+                    string thirdLine = FormatLineAsSentence(buttonText.text, 3);
+                    string fourthLine = FormatLineAsSentence(buttonText.text, 4);
+                    string fifthLine = FormatLineAsSentence(buttonText.text, 5);
 
                     txtComplete.text = $"Complete <color=#00ffff>{firstLine}</color> First";
                     txtBefore.text = $"Before you proceed, make sure to finish <color=#00ffff>{thirdLine} {fourthLine} {fifthLine}</color>";
-                    lockedPanel.SetActive(true); // Show the warning panel
                 }
                 else
                 {
@@ -99,54 +106,40 @@ private void OnLockedButtonClicked(Button button)
                 txtComplete.text = "No previous lessons found.";
             }
 
+            lockedPanel.SetActive(true); // Show the warning panel
             Debug.Log($"Locked button {button.name} clicked! Panel displayed with message: {txtComplete.text}");
         }
     }
 
-    // ✅ Function to Extract a Specific Line & Convert to Sentence Case
     private string FormatLineAsSentence(string text, int lineNumber)
     {
-        if (string.IsNullOrEmpty(text))
-            return null; // Default fallback
+        if (string.IsNullOrEmpty(text)) return "";
 
-        string[] lines = text.Split('\n'); // Split text into lines
-        if (lines.Length < lineNumber)
-            return null; // Return default if line doesn't exist
+        string[] lines = text.Split('\n');
+        if (lines.Length < lineNumber) return "";
 
-        string selectedLine = lines[lineNumber - 1].Trim(); // Get the specific line (1-based index)
-
-        return selectedLine; // Convert to sentence case
+        return lines[lineNumber - 1].Trim();
     }
-
 
     private Button GetHighestInteractableButton()
     {
-        // Get all interactable buttons
         Button[] buttons = scrollView.content.GetComponentsInChildren<Button>(true);
 
-        // Filter only interactable buttons and extract numbers correctly
-        Button highestButton = buttons
+        return buttons
             .Where(button => button.interactable)
-            .OrderByDescending(button => ExtractNumberFromString(button.name)) // Extract numbers properly
+            .OrderByDescending(button => ExtractNumberFromString(button.name))
             .FirstOrDefault();
-
-        return highestButton;
     }
 
-    // ✅ Function to Extract Numbers from String
     private int ExtractNumberFromString(string input)
     {
-        string numberString = new string(input.Where(char.IsDigit).ToArray()); // Extracts only numbers
-        return int.TryParse(numberString, out int number) ? number : 0; // Convert to int, default to 0 if failed
+        string numberString = new string(input.Where(char.IsDigit).ToArray());
+        return int.TryParse(numberString, out int number) ? number : 0;
     }
 
     private string StripRichTextTags(string text)
     {
-        if (string.IsNullOrEmpty(text))
-            return text;
-
-        // Remove rich text tags using regex
-        return System.Text.RegularExpressions.Regex.Replace(text, "<.*?>", string.Empty);
+        return string.IsNullOrEmpty(text) ? text : Regex.Replace(text, "<.*?>", string.Empty);
     }
 
     public void LoadSceneFromHighestButton()
@@ -157,7 +150,7 @@ private void OnLockedButtonClicked(Button button)
         {
             string sceneName = highestButton.name; // Use the button's name as the scene name
             Debug.Log($"Loading scene: {sceneName}");
-            SceneManager.LoadScene(sceneName); // Load the scene
+            SceneManager.LoadScene(sceneName);
         }
         else
         {
@@ -169,7 +162,7 @@ private void OnLockedButtonClicked(Button button)
     {
         if (lockedPanel != null)
         {
-            lockedPanel.SetActive(false); // Hide the panel
+            lockedPanel.SetActive(false);
         }
     }
 }
