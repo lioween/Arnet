@@ -1683,7 +1683,7 @@ MonoBehaviour:
     - B. Wi-Fi
     - C. Bluetooth
     - D. External hard drives
-    correctAnswerIndex: 0
+    correctAnswerIndex: 3
   - questionText: What is a key element required for devices to communicate in a
       network?
     options:

@@ -3,7 +3,7 @@ using Firebase;
 using Firebase.Firestore;
 using Firebase.Auth;
 using Firebase.Extensions;
-using TMPro; // Import TextMeshPro namespace
+using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
@@ -11,29 +11,27 @@ using System.Threading.Tasks;
 
 public class FirebaseBadgeLoader : MonoBehaviour
 {
-    public string profileCollection = "profile"; // Firestore collection
-    [SerializeField] private GameObject badgePrefab; // Prefab for badge images
-    [SerializeField] private Transform contentPanel; // Assign `svBadges/Viewport/Content`
-    [SerializeField] private GameObject loadingPanel; // ✅ New: Loading Panel
+    public string profileCollection = "profile";
+    [SerializeField] private GameObject badgePrefab;
+    [SerializeField] private Transform contentPanel;
+    [SerializeField] private GameObject loadingPanel;
+    [SerializeField] private TMP_Text txtNoBadge; // ✅ UI Text for No Badges Available
 
     private FirebaseFirestore db;
     private FirebaseAuth auth;
     private string userID;
-    private Dictionary<string, int> badgeCounts = new Dictionary<string, int>(); // Store badge counts per collection
+    private Dictionary<string, int> badgeCounts = new Dictionary<string, int>();
+    private int totalBadges = 0; // ✅ Track total badges across collections
 
     void Start()
     {
-        if (badgePrefab == null)
+        if (badgePrefab == null || loadingPanel == null || txtNoBadge == null)
         {
-            Debug.LogError("⚠️ Badge Prefab is not assigned in the Inspector!");
+            Debug.LogError("⚠️ One or more UI elements are not assigned in the Inspector!");
             return;
         }
 
-        if (loadingPanel == null)
-        {
-            Debug.LogError("⚠️ Loading Panel is not assigned in the Inspector!");
-            return;
-        }
+        txtNoBadge.gameObject.SetActive(false); // ✅ Hide initially
 
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
         {
@@ -45,7 +43,7 @@ public class FirebaseBadgeLoader : MonoBehaviour
                 if (auth.CurrentUser != null)
                 {
                     userID = auth.CurrentUser.UserId;
-                    StartCoroutine(LoadUserBadgesCoroutine()); // ✅ Coroutine to load badges
+                    StartCoroutine(LoadUserBadgesCoroutine());
                 }
                 else
                 {
@@ -61,18 +59,19 @@ public class FirebaseBadgeLoader : MonoBehaviour
 
     IEnumerator LoadUserBadgesCoroutine()
     {
-        loadingPanel.SetActive(true); // ✅ Show loading panel before fetching data
+        loadingPanel.SetActive(true);
+        totalBadges = 0; // ✅ Reset badge count before loading
 
         List<Task<QuerySnapshot>> tasks = new List<Task<QuerySnapshot>>();
 
-        for (float i = 1.0f; i <= 10.0f; i += 1.0f) // Loop through collections 1.0 to 10.0
+        for (float i = 1.0f; i <= 10.0f; i += 1.0f)
         {
             string collectionName = i.ToString("0.0", CultureInfo.InvariantCulture);
             badgeCounts[collectionName] = 0;
             tasks.Add(db.Collection(profileCollection).Document(userID).Collection(collectionName).GetSnapshotAsync());
         }
 
-        yield return new WaitUntil(() => tasks.TrueForAll(t => t.IsCompleted)); // ✅ Wait until all Firebase calls finish
+        yield return new WaitUntil(() => tasks.TrueForAll(t => t.IsCompleted));
 
         for (int i = 0; i < tasks.Count; i++)
         {
@@ -88,12 +87,14 @@ public class FirebaseBadgeLoader : MonoBehaviour
             }
         }
 
-        loadingPanel.SetActive(false); // ✅ Hide loading panel after all collections are checked
+        loadingPanel.SetActive(false);
+
+        // ✅ If no badges exist, show "No badges available" text
+        txtNoBadge.gameObject.SetActive(totalBadges == 0);
     }
 
     void ProcessCollection(string collectionName, QuerySnapshot snapshot)
     {
-        // ✅ Correct way to find inactive objects
         Transform panelTransform = contentPanel.Find(collectionName);
         GameObject panel = panelTransform != null ? panelTransform.gameObject : null;
 
@@ -109,66 +110,42 @@ public class FirebaseBadgeLoader : MonoBehaviour
                 string imageName = doc.Id;
                 AddBadgeToScrollView(collectionName, imageName);
                 badgeCount++;
+                totalBadges++; // ✅ Increase global badge count
             }
         }
 
-        // ✅ Only show the Panel & ScrollView if at least 1 document has `status="passed"`
         bool hasPassedDocuments = badgeCount > 0;
 
         if (panel != null)
         {
             panel.SetActive(hasPassedDocuments);
         }
-        else
-        {
-            Debug.LogWarning($"⚠️ Panel {collectionName} not found inside Content.");
-        }
 
         if (scrollView != null)
         {
             scrollView.SetActive(hasPassedDocuments);
         }
-        else
-        {
-            Debug.LogWarning($"⚠️ ScrollView sv{collectionName} not found inside Content.");
-        }
 
-        if (hasPassedDocuments)
-        {
-            Debug.Log($"✅ Collection {collectionName} has `status=passed`, activating Panel & ScrollView.");
-        }
-        else
-        {
-            Debug.Log($"❌ No `status=passed` in Collection {collectionName}, keeping Panel & ScrollView inactive.");
-        }
-
-        // Store badge count for UI updates
         badgeCounts[collectionName] = badgeCount;
         UpdateBadgeCountUI(collectionName);
     }
 
-
-
     void AddBadgeToScrollView(string collectionName, string imageName)
     {
-        // ✅ Find ScrollView inside Content
         Transform scrollViewTransform = contentPanel.Find("sv" + collectionName);
         GameObject scrollView = scrollViewTransform != null ? scrollViewTransform.gameObject : null;
 
         if (scrollView != null)
         {
-            // ✅ Correct way to find Content inside ScrollView
             Transform viewport = scrollView.transform.Find("Viewport");
             Transform contentTransform = viewport != null ? viewport.Find("Content") : null;
 
             if (contentTransform != null)
             {
-                // ✅ Load image from Resources folder
                 Sprite badgeSprite = Resources.Load<Sprite>("Badges/" + imageName);
 
                 if (badgeSprite != null)
                 {
-                    // ✅ Instantiate badge prefab inside ScrollView Content
                     GameObject newBadge = Instantiate(badgePrefab, contentTransform);
                     UnityEngine.UI.Image imageComponent = newBadge.GetComponent<UnityEngine.UI.Image>();
 
@@ -197,7 +174,6 @@ public class FirebaseBadgeLoader : MonoBehaviour
             Debug.LogWarning($"⚠️ ScrollView sv{collectionName} not found inside Content.");
         }
     }
-
 
     void UpdateBadgeCountUI(string collectionName)
     {

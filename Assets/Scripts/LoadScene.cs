@@ -43,7 +43,7 @@ public class BackButton : MonoBehaviour
             sceneHistory.Add(currentScene);
 
             // Keep only the last 5 scenes
-            if (sceneHistory.Count > 5)
+            if (sceneHistory.Count > 10)
             {
                 sceneHistory.RemoveAt(0);
             }
