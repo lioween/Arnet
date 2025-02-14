@@ -31,12 +31,13 @@ public class LockedButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerU
         foreach (Button button in buttons)
         {
             
-                if (button.interactable)
+                if (button.interactable == true)
                 {
                     // ✅ Normal interactable buttons work as expected
                     button.onClick.AddListener(() => Debug.Log($"Interactable button {button.name} clicked!"));
                 
             }
+           
         }
     }
 
@@ -48,22 +49,27 @@ public class LockedButtonHandler : MonoBehaviour, IPointerDownHandler, IPointerU
 
     public void OnPointerUp(PointerEventData eventData)
     {
-        if (!isDragging) // Ensure it's not a drag operation
+        if (isDragging) return; // Prevent accidental button clicks if dragging occurred
+
+        // Ensure eventData.pointerEnter is not null
+        if (eventData.pointerEnter == null) return;
+
+        Button button = eventData.pointerEnter.GetComponent<Button>();
+
+        if (button != null)
         {
-            Button button = eventData.pointerEnter?.GetComponent<Button>();
-            if (button != null)
+            if (button.interactable)
             {
-                if (button.interactable == true)
-                {
-                    button.onClick.Invoke(); // Normal button click
-                }
-                else
-                {
-                    OnLockedButtonClicked(button);
-                }
+                button.onClick.Invoke(); // Normal button click
+            }
+            else
+            {
+                Debug.Log($"Locked button {button.name} clicked! Calling OnLockedButtonClicked.");
+                OnLockedButtonClicked(button); // Handle locked button case
             }
         }
     }
+
 
     public void OnDrag(PointerEventData eventData)
     {

@@ -63,6 +63,7 @@
     <Compile Include="Assets\Scripts\LessonAdder.cs" />
     <Compile Include="Assets\Scripts\BadgeLoader.cs" />
     <Compile Include="Assets\Scripts\ImageHelper.cs" />
+    <Compile Include="Assets\Scripts\E 1.4.cs" />
     <Compile Include="Assets\Scripts\CheckCurrentUser.cs" />
     <Compile Include="Assets\Scripts\LogoutToggle.cs" />
     <Compile Include="Assets\Scenes\Simulation\CMDInterface.cs" />
@@ -99,6 +100,7 @@
     <Compile Include="Assets\Scripts\ShowHidePw.cs" />
     <Compile Include="Assets\Scripts\ExerciseToggle.cs" />
     <Compile Include="Assets\Scripts\WelcomeLoader.cs" />
+    <Compile Include="Assets\Scripts\FontSize.cs" />
     <Compile Include="Assets\Scripts\PersistentScene.cs" />
     <Compile Include="Assets\Scenes\Simulation\another scripts\Rope.cs" />
     <Compile Include="Assets\GoogleSignIn\GoogleSignIn.cs" />

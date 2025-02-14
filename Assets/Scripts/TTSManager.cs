@@ -8,6 +8,11 @@ public class TTSManager : MonoBehaviour
 {
     public TMP_Text txtTitle;
     public TMP_Text txtText; // Reference to the TMP text object
+    public TMP_Text txtExtra1;
+    public TMP_Text txtExtra2;
+    public TMP_Text txtExtra3;
+    public TMP_Text txtExtra4;
+
     private TextToSpeech tts; // Replace with your TTS class
     private string originalText;
 
@@ -15,33 +20,29 @@ public class TTSManager : MonoBehaviour
     public GameObject btnStop;
     public ScrollRect scrollRect; // Reference to the ScrollRect for smooth scrolling
 
-    private string[] paragraphs; // Array to hold text split into paragraphs
+    private string[] paragraphs;
     private int currentParagraphIndex = 0;
-    private bool isSpeaking = false; // Flag to track if speaking is ongoing
+    private bool isSpeaking = false;
 
     void Start()
     {
-        // Initialize your TTS class (AndroidTextToSpeech in this case)
         tts = gameObject.AddComponent<TextToSpeech>();
 
-        // Split text into paragraphs
         if (txtText != null)
         {
-            originalText = txtText.text; // Store the original text
-            paragraphs = Regex.Split(txtText.text, "\n+", RegexOptions.Compiled); // Split by newlines
+            originalText = txtText.text;
+            paragraphs = Regex.Split(txtText.text, "\n+", RegexOptions.Compiled);
         }
     }
 
     public void SpeakTMPText()
     {
-        // Check if TMP text is assigned
         if (txtText == null)
         {
             Debug.LogError("TMP Text is not assigned.");
             return;
         }
 
-        // Check if the text is empty
         if (paragraphs == null || paragraphs.Length == 0)
         {
             Debug.LogWarning("TextMeshPro text is empty or not split correctly.");
@@ -50,112 +51,68 @@ public class TTSManager : MonoBehaviour
 
         btnPlay.SetActive(false);
         btnStop.SetActive(true);
-        isSpeaking = true; // Set the speaking flag to true
+        isSpeaking = true;
         StartCoroutine(ReadTitleAndText());
     }
 
     private IEnumerator ReadTitleAndText()
     {
-        // Speak the title first
         tts.Speak(StripRichTextTags(txtTitle.text));
-
-        // Wait until the TTS is done speaking the title
         while (tts.IsSpeaking())
         {
-            if (!isSpeaking) // Stop if interrupted
-                yield break;
-
+            if (!isSpeaking) yield break;
             yield return null;
         }
 
-        // Optional delay after the title
         yield return new WaitForSeconds(1f);
-
-        // Proceed to read paragraphs
-        yield return StartCoroutine(ReadTextParagraphByParagraph());
+        yield return StartCoroutine(ReadTextParagraphByParagraph(paragraphs, txtText));
+        yield return StartCoroutine(ReadExtraTexts());
     }
 
-    private IEnumerator ReadTextParagraphByParagraph()
+    private IEnumerator ReadTextParagraphByParagraph(string[] textParagraphs, TMP_Text textComponent)
     {
-        for (currentParagraphIndex = 0; currentParagraphIndex < paragraphs.Length; currentParagraphIndex++)
+        for (currentParagraphIndex = 0; currentParagraphIndex < textParagraphs.Length; currentParagraphIndex++)
         {
-            if (!isSpeaking) // Stop if speaking was interrupted
-                break;
+            if (!isSpeaking) break;
 
-            // Get the current paragraph and speak it
-            string paragraph = paragraphs[currentParagraphIndex];
+            string paragraph = textParagraphs[currentParagraphIndex];
             tts.Speak(StripRichTextTags(paragraph));
+            HighlightParagraph(textParagraphs, textComponent, currentParagraphIndex);
 
-            // Highlight the current paragraph in the TMP text
-            HighlightParagraph(currentParagraphIndex);
-
-            // Smoothly scroll to center the current paragraph only if it is outside the center threshold
-            yield return StartCoroutine(SmoothScrollToParagraphIfNeeded(currentParagraphIndex));
-
-            // Wait for TTS to finish speaking the paragraph
             while (tts.IsSpeaking())
             {
-                if (!isSpeaking) // Stop if interrupted
-                    break;
-
+                if (!isSpeaking) break;
                 yield return null;
             }
-
-            // Small delay before the next paragraph
-            if (isSpeaking)
-                yield return new WaitForSeconds(1f);
+            yield return new WaitForSeconds(1f);
         }
 
-        // Reset button states after all paragraphs are read or stopped
+        RemoveHighlight(textComponent, textParagraphs);
+    }
+
+    private IEnumerator ReadExtraTexts()
+    {
+        TMP_Text[] extraTexts = { txtExtra1, txtExtra2, txtExtra3, txtExtra4 };
+        foreach (TMP_Text extraText in extraTexts)
+        {
+            if (extraText != null && !string.IsNullOrWhiteSpace(extraText.text))
+            {
+                string[] extraParagraphs = Regex.Split(extraText.text, "\n+", RegexOptions.Compiled);
+                yield return StartCoroutine(ReadTextParagraphByParagraph(extraParagraphs, extraText));
+            }
+        }
+
         btnPlay.SetActive(true);
         btnStop.SetActive(false);
         isSpeaking = false;
     }
 
-    private IEnumerator SmoothScrollToParagraphIfNeeded(int index)
-    {
-        if (scrollRect == null || paragraphs == null || paragraphs.Length == 0)
-            yield break;
-
-        // Calculate the target scroll position to center the paragraph
-        float targetPosition = 1 - (float)index / (paragraphs.Length - 1); // Inverted because Unity scrolls from top to bottom
-
-        // Adjust to center the paragraph
-        targetPosition -= 0.5f / (paragraphs.Length - 1); // Offset to center the highlighted paragraph
-        targetPosition = Mathf.Clamp01(targetPosition); // Ensure the position stays within bounds
-
-        // Define a threshold for the center position
-        float threshold = 0.1f; // Allowable offset from the center
-
-        // Check if the paragraph is already close to the center
-        if (Mathf.Abs(scrollRect.verticalNormalizedPosition - targetPosition) < threshold)
-            yield break; // Skip scrolling if already close to the center
-
-        float startPosition = scrollRect.verticalNormalizedPosition;
-
-        // Smoothly interpolate the scroll position
-        float duration = 0.5f; // Duration of the smooth scroll
-        float elapsedTime = 0f;
-
-        while (elapsedTime < duration)
-        {
-            elapsedTime += Time.deltaTime;
-            scrollRect.verticalNormalizedPosition = Mathf.Lerp(startPosition, targetPosition, elapsedTime / duration);
-            yield return null;
-        }
-
-        // Ensure the final position is exactly the target
-        scrollRect.verticalNormalizedPosition = targetPosition;
-    }
-
-    
-
     public void StopSpeaking()
     {
         if (tts != null)
         {
-            tts.Stop(); // Assuming the TTS class has a Stop method
-            isSpeaking = false; // Set the speaking flag to false
+            tts.Stop();
+            isSpeaking = false;
             btnPlay.SetActive(true);
             btnStop.SetActive(false);
             Debug.Log("Text-to-Speech stopped.");
@@ -171,33 +128,24 @@ public class TTSManager : MonoBehaviour
         }
     }
 
-    private void HighlightParagraph(int index)
+    private void HighlightParagraph(string[] textParagraphs, TMP_Text textComponent, int index)
     {
-        // Preserve the original text structure
-        TMP_TextInfo textInfo = txtText.textInfo;
-        txtText.ForceMeshUpdate(); // Update text mesh data
-
+        textComponent.ForceMeshUpdate();
         string highlightedText = "";
-        for (int i = 0; i < paragraphs.Length; i++)
+        for (int i = 0; i < textParagraphs.Length; i++)
         {
-            if (i == index)
-            {
-                highlightedText += $"<color=yellow>{paragraphs[i]}</color>\n";
-            }
-            else
-            {
-                highlightedText += $"{paragraphs[i]}\n";
-            }
+            highlightedText += (i == index) ? $"<color=yellow>{textParagraphs[i]}</color>\n" : $"{textParagraphs[i]}\n";
         }
-
-        txtText.text = highlightedText.TrimEnd('\n');
+        textComponent.text = highlightedText.TrimEnd('\n');
     }
 
-     private string StripRichTextTags(string text)
-        {
-        return Regex.Replace(text, "<.*?>", string.Empty); // Remove all tags except <align=center>
-
+    private void RemoveHighlight(TMP_Text textComponent, string[] textParagraphs)
+    {
+        textComponent.text = string.Join("\n", textParagraphs);
     }
 
-
+    private string StripRichTextTags(string text)
+    {
+        return Regex.Replace(text, "<.*?>", string.Empty);
+    }
 }

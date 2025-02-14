@@ -5,25 +5,23 @@ using UnityEngine.UI;
 
 public class TextSearchHighlighter : MonoBehaviour
 {
-    public TMP_Text textComponent;       // The TMP_Text component for the text to search in
-    public TMP_InputField searchField;   // The input field for entering the search term
+    public TMP_Text[] textComponents; // Array of TMP_Text components for multiple texts
+    public TMP_InputField searchField; // Input field for entering the search term
     public Button btnSearch;
-  
 
-    private string originalText;         // Stores the original unformatted text
+    private Dictionary<TMP_Text, string> originalTexts = new Dictionary<TMP_Text, string>();
     private string searchTerm;
-    private List<int> searchIndices;
-    private int currentSearchIndex;
+    private Dictionary<TMP_Text, List<int>> searchIndices = new Dictionary<TMP_Text, List<int>>();
 
     void Start()
     {
-        searchIndices = new List<int>();
-        currentSearchIndex = -1;
-        originalText = textComponent.text; // Save the original text
+        foreach (TMP_Text text in textComponents)
+        {
+            originalTexts[text] = text.text; // Store the original text
+            searchIndices[text] = new List<int>();
+        }
 
-        // Add listeners to buttons
-     
-
+        
     }
 
     public void SearchClick()
@@ -44,10 +42,10 @@ public class TextSearchHighlighter : MonoBehaviour
 
     public void SearchReset()
     {
-            btnSearch.image.color = Color.white;
-            searchField.text = "";
-            searchField.gameObject.SetActive(false);
-        
+        btnSearch.image.color = Color.white;
+        searchField.text = "";
+        searchField.gameObject.SetActive(false);
+
     }
 
     private bool CompareColors(Color a, Color b, float tolerance = 0.01f)
@@ -57,8 +55,6 @@ public class TextSearchHighlighter : MonoBehaviour
                Mathf.Abs(a.b - b.b) < tolerance;
     }
 
-
-
     // Called when the search term is updated
     public void OnSearchTermChanged()
     {
@@ -66,63 +62,65 @@ public class TextSearchHighlighter : MonoBehaviour
 
         if (searchTerm.Length < 2) // Prevents applying color on single characters
         {
-            textComponent.text = originalText;
+            ResetAllTexts();
             return;
         }
 
-        FindAllOccurrences();
-        textComponent.text = originalText; // Reset to the original text
-
-        if (searchIndices.Count > 0)
+        foreach (TMP_Text text in textComponents)
         {
-            HighlightAllOccurrences();
+            FindAllOccurrences(text);
+            HighlightAllOccurrences(text);
         }
     }
 
-
-    // Highlights all found occurrences of the search term by changing its color
-    private void HighlightAllOccurrences()
-{
-    string modifiedText = originalText;
-    string lowerText = originalText.ToLower();
-
-    int offset = 0; // Adjusts for added <color> tags length
-
-    foreach (int index in searchIndices)
+    // Resets all TMP texts to their original state
+    private void ResetAllTexts()
     {
-        int adjustedIndex = index + offset;
-        string coloredText = $"<color=#FFFF00>{modifiedText.Substring(adjustedIndex, searchTerm.Length)}</color>"; // Red color
-
-        modifiedText = modifiedText.Substring(0, adjustedIndex) + 
-                       coloredText + 
-                       modifiedText.Substring(adjustedIndex + searchTerm.Length);
-
-        offset += "<color=#FFFF00></color>".Length; // Adjust offset due to added markup
+        foreach (TMP_Text text in textComponents)
+        {
+            text.text = originalTexts[text];
+        }
     }
 
-    textComponent.text = modifiedText;
-}
-
-
-    // Finds all occurrences of the search term
-    private void FindAllOccurrences()
+    // Finds all occurrences of the search term in a given text component
+    private void FindAllOccurrences(TMP_Text textComponent)
     {
-        searchIndices.Clear();
-        currentSearchIndex = -1;
+        searchIndices[textComponent].Clear();
 
         if (!string.IsNullOrEmpty(searchTerm))
         {
-            string lowerText = originalText.ToLower(); // Convert text to lowercase for comparison
-            int index = lowerText.IndexOf(searchTerm, 0);
+            string original = originalTexts[textComponent];
+            string lowerText = original.ToLower();
 
+            int index = lowerText.IndexOf(searchTerm, 0);
             while (index != -1)
             {
-                searchIndices.Add(index);
+                searchIndices[textComponent].Add(index);
                 index = lowerText.IndexOf(searchTerm, index + searchTerm.Length);
             }
         }
     }
 
-   
-   
+    // Highlights all found occurrences of the search term in a given text component
+    private void HighlightAllOccurrences(TMP_Text textComponent)
+    {
+        string modifiedText = originalTexts[textComponent];
+        string lowerText = modifiedText.ToLower();
+
+        int offset = 0; // Adjusts for added <color> tags length
+
+        foreach (int index in searchIndices[textComponent])
+        {
+            int adjustedIndex = index + offset;
+            string coloredText = $"<color=#FFFF00>{modifiedText.Substring(adjustedIndex, searchTerm.Length)}</color>";
+
+            modifiedText = modifiedText.Substring(0, adjustedIndex) +
+                           coloredText +
+                           modifiedText.Substring(adjustedIndex + searchTerm.Length);
+
+            offset += "<color=#FFFF00></color>".Length; // Adjust offset due to added markup
+        }
+
+        textComponent.text = modifiedText;
+    }
 }
