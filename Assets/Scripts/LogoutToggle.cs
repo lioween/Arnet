@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class LogoutToggle : MonoBehaviour
+public class ToggleObject : MonoBehaviour
 {
     [Header("GameObject to Toggle")]
     

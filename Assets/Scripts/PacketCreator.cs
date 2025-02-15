@@ -73,7 +73,7 @@ public class PacketCreator : MonoBehaviour
         // I-validate ang mga input
         if (string.IsNullOrEmpty(sourceIP) || string.IsNullOrEmpty(destinationIP))
         {
-            feedbackText.text = "Warning: Dapat may Source IP at Destination IP!";
+            feedbackText.text = "Warning: Source IP and Destination IP must be set!";
             feedbackText.color = Color.red;
             return; // Huwag magpatuloy kung kulang ang IP
         }
