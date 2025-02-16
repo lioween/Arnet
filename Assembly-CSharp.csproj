@@ -97,6 +97,7 @@
     <Compile Include="Assets\Scripts\QuizManager.cs" />
     <Compile Include="Assets\Scripts\ShowHidePw.cs" />
     <Compile Include="Assets\Scripts\ExerciseToggle.cs" />
+    <Compile Include="Assets\Scripts\ExerciseManager.cs" />
     <Compile Include="Assets\Scripts\WelcomeLoader.cs" />
     <Compile Include="Assets\Scripts\RotateAndReset.cs" />
     <Compile Include="Assets\Scripts\FontSize.cs" />
