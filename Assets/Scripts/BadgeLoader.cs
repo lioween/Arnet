@@ -7,7 +7,9 @@ using TMPro;
 using System.Collections;
 using System.Collections.Generic;
 using System.Globalization;
+using System.Linq;
 using System.Threading.Tasks;
+using UnityEngine.UI;
 
 public class FirebaseBadgeLoader : MonoBehaviour
 {
@@ -15,23 +17,29 @@ public class FirebaseBadgeLoader : MonoBehaviour
     [SerializeField] private GameObject badgePrefab;
     [SerializeField] private Transform contentPanel;
     [SerializeField] private GameObject loadingPanel;
-    [SerializeField] private TMP_Text txtNoBadge; // ✅ UI Text for No Badges Available
+    [SerializeField] private TMP_Text txtNoBadge;
+    [SerializeField] private GameObject badgeDetailsPanel;
+    [SerializeField] private Image badgeDetailsImage;
 
     private FirebaseFirestore db;
     private FirebaseAuth auth;
     private string userID;
     private Dictionary<string, int> badgeCounts = new Dictionary<string, int>();
-    private int totalBadges = 0; // ✅ Track total badges across collections
+    private int totalBadges = 0;
+    private Dictionary<string, List<string>> allBadgesByCollection = new Dictionary<string, List<string>>();
 
     void Start()
     {
-        if (badgePrefab == null || loadingPanel == null || txtNoBadge == null)
+        if (badgePrefab == null || loadingPanel == null || txtNoBadge == null || badgeDetailsPanel == null || badgeDetailsImage == null)
         {
             Debug.LogError("⚠️ One or more UI elements are not assigned in the Inspector!");
             return;
         }
 
-        txtNoBadge.gameObject.SetActive(false); // ✅ Hide initially
+        txtNoBadge.gameObject.SetActive(false);
+        badgeDetailsPanel.SetActive(false);
+
+        LoadBadgesFromResources();
 
         FirebaseApp.CheckAndFixDependenciesAsync().ContinueWithOnMainThread(task =>
         {
@@ -57,11 +65,31 @@ public class FirebaseBadgeLoader : MonoBehaviour
         });
     }
 
+    void LoadBadgesFromResources()
+    {
+        allBadgesByCollection.Clear();
+
+        Sprite[] allBadges = Resources.LoadAll<Sprite>("Badges");
+        foreach (Sprite badge in allBadges)
+        {
+            string badgeName = badge.name;
+            if (badgeName.Length < 2 || !char.IsDigit(badgeName[0])) continue; // Skip invalid names
+
+            string collectionKey = badgeName[0] + ".0"; // Categorize by first digit (1.0, 2.0, etc.)
+
+            if (!allBadgesByCollection.ContainsKey(collectionKey))
+            {
+                allBadgesByCollection[collectionKey] = new List<string>();
+            }
+
+            allBadgesByCollection[collectionKey].Add(badgeName);
+        }
+    }
+
     IEnumerator LoadUserBadgesCoroutine()
     {
         loadingPanel.SetActive(true);
-        totalBadges = 0; // ✅ Reset badge count before loading
-
+        totalBadges = 0;
         List<Task<QuerySnapshot>> tasks = new List<Task<QuerySnapshot>>();
 
         for (float i = 1.0f; i <= 10.0f; i += 1.0f)
@@ -88,8 +116,6 @@ public class FirebaseBadgeLoader : MonoBehaviour
         }
 
         loadingPanel.SetActive(false);
-
-        // ✅ If no badges exist, show "No badges available" text
         txtNoBadge.gameObject.SetActive(totalBadges == 0);
     }
 
@@ -101,36 +127,41 @@ public class FirebaseBadgeLoader : MonoBehaviour
         Transform scrollViewTransform = contentPanel.Find("sv" + collectionName);
         GameObject scrollView = scrollViewTransform != null ? scrollViewTransform.gameObject : null;
 
-        int badgeCount = 0;
-
+        HashSet<string> passedBadges = new HashSet<string>();
         foreach (DocumentSnapshot doc in snapshot.Documents)
         {
             if (doc.ContainsField("status") && doc.GetValue<string>("status") == "passed")
             {
-                string imageName = doc.Id;
-                AddBadgeToScrollView(collectionName, imageName);
-                badgeCount++;
-                totalBadges++; // ✅ Increase global badge count
+                passedBadges.Add(doc.Id);
+                totalBadges++;
             }
         }
 
-        bool hasPassedDocuments = badgeCount > 0;
-
-        if (panel != null)
+        if (passedBadges.Count > 0) // ✅ Show collection only if there is at least one "passed" badge
         {
-            panel.SetActive(hasPassedDocuments);
+            if (allBadgesByCollection.ContainsKey(collectionName))
+            {
+                foreach (string badge in allBadgesByCollection[collectionName])
+                {
+                    bool isUnlocked = passedBadges.Contains(badge);
+                    AddBadgeToScrollView(collectionName, badge, isUnlocked);
+                }
+            }
+
+            if (panel != null) panel.SetActive(true);
+            if (scrollView != null) scrollView.SetActive(true);
+        }
+        else
+        {
+            if (panel != null) panel.SetActive(false);
+            if (scrollView != null) scrollView.SetActive(false);
         }
 
-        if (scrollView != null)
-        {
-            scrollView.SetActive(hasPassedDocuments);
-        }
-
-        badgeCounts[collectionName] = badgeCount;
+        badgeCounts[collectionName] = passedBadges.Count;
         UpdateBadgeCountUI(collectionName);
     }
 
-    void AddBadgeToScrollView(string collectionName, string imageName)
+    void AddBadgeToScrollView(string collectionName, string imageName, bool isUnlocked)
     {
         Transform scrollViewTransform = contentPanel.Find("sv" + collectionName);
         GameObject scrollView = scrollViewTransform != null ? scrollViewTransform.gameObject : null;
@@ -147,31 +178,31 @@ public class FirebaseBadgeLoader : MonoBehaviour
                 if (badgeSprite != null)
                 {
                     GameObject newBadge = Instantiate(badgePrefab, contentTransform);
-                    UnityEngine.UI.Image imageComponent = newBadge.GetComponent<UnityEngine.UI.Image>();
+                    Image imageComponent = newBadge.GetComponent<Image>();
 
                     if (imageComponent != null)
                     {
                         imageComponent.sprite = badgeSprite;
-                        Debug.Log($"✅ Added badge {imageName} to ScrollView: {collectionName}");
-                    }
-                    else
-                    {
-                        Debug.LogError("⚠️ Badge prefab is missing an Image component.");
+                        Button badgeButton = newBadge.GetComponent<Button>();
+
+                        if (isUnlocked)
+                        {
+                            if (badgeButton != null)
+                            {
+                                badgeButton.onClick.AddListener(() => ShowBadgeDetails(badgeSprite));
+                            }
+                        }
+                        else
+                        {
+                            if (badgeButton != null)
+                            {
+                                badgeButton.interactable = false;
+                            }
+                            imageComponent.color = new Color(200f / 255f, 200f / 255f, 200f / 255f, 1f);
+                        }
                     }
                 }
-                else
-                {
-                    Debug.LogWarning($"⚠️ Image {imageName} not found in Resources/Badges/");
-                }
             }
-            else
-            {
-                Debug.LogError($"❌ Content not found inside ScrollView: sv{collectionName}");
-            }
-        }
-        else
-        {
-            Debug.LogWarning($"⚠️ ScrollView sv{collectionName} not found inside Content.");
         }
     }
 
@@ -189,22 +220,20 @@ public class FirebaseBadgeLoader : MonoBehaviour
 
                 if (countText != null)
                 {
-                    countText.text = $"{badgeCounts[collectionName]}/5";
-                    Debug.Log($"🏆 Updated badge count for {collectionName}: {badgeCounts[collectionName]}");
-                }
-                else
-                {
-                    Debug.LogWarning($"⚠️ TMP_Text component missing from 'txtTotal' inside Panel {collectionName}.");
+                    countText.text = $"{badgeCounts[collectionName]}/5"; // ✅ Only counting passed badges
                 }
             }
-            else
-            {
-                Debug.LogWarning($"⚠️ 'txtTotal' not found inside Panel {collectionName}.");
-            }
         }
-        else
-        {
-            Debug.LogWarning($"⚠️ Panel {collectionName} not found inside Content.");
-        }
+    }
+
+    void ShowBadgeDetails(Sprite badgeSprite)
+    {
+        badgeDetailsImage.sprite = badgeSprite;
+        badgeDetailsPanel.SetActive(true);
+    }
+
+    public void CloseBadgeDetails()
+    {
+        badgeDetailsPanel.SetActive(false);
     }
 }

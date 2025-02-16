@@ -333,7 +333,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 710651770}
   scrollView: {fileID: 812414783}
-  videoURL: https://www.youtube.com/embed/YTP-LImngq4?si=V3LxsVm3xonj9wOh
+  videoURL: https://www.youtube.com/embed/1s4HWqOBiCM?si=SysOPI5m7eCJJQ5J
 --- !u!4 &203465380
 Transform:
   m_ObjectHideFlags: 0
@@ -5352,7 +5352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 1725367931}
   scrollView: {fileID: 812414783}
-  videoURL: https://www.youtube.com/embed/YTP-LImngq4?si=V3LxsVm3xonj9wOh
+  videoURL: https://www.youtube.com/embed/1s4HWqOBiCM?si=SysOPI5m7eCJJQ5J
 --- !u!4 &2004195250
 Transform:
   m_ObjectHideFlags: 0

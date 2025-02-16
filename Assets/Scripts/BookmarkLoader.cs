@@ -110,4 +110,48 @@ public class BookmarkLoader : MonoBehaviour
 
         loadingPanel.SetActive(false);
     }
+
+    public void SearchBookmarks()
+    {
+        // Get the search text from the input field and convert it to lowercase for case-insensitive comparison
+        string searchText = inpSearch.text.ToLower();
+
+        bool anyMatches = false; // Track if any matches are found
+
+        // Iterate through all child objects in the button container
+        foreach (Transform child in content)
+        {
+            // Get all TMP_Text components in the child object (and its descendants)
+            TMP_Text[] textComponents = child.GetComponentsInChildren<TMP_Text>();
+
+            bool matchesSearch = false;
+
+            // Check if any TMP_Text component contains the search text
+            foreach (TMP_Text text in textComponents)
+            {
+                if (text.text.ToLower().Contains(searchText))
+                {
+                    matchesSearch = true;
+                    anyMatches = true;
+                    break; // No need to check further if a match is found
+                }
+            }
+
+            // Set the active state of the child object based on the search result
+            child.gameObject.SetActive(matchesSearch);
+        }
+
+        // Show or hide the "no results" panel based on whether matches were found
+        if (anyMatches == true)
+        {
+            txtNoResult.SetActive(false);
+            txtNoBookmark.SetActive(false);
+        }
+        else
+        {
+            txtNoResult.SetActive(true);
+            txtNoBookmark.SetActive(false);
+        }
+    }
+
 }
