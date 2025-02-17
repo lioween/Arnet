@@ -59,7 +59,6 @@ public class E14Manager : MonoBehaviour
         CheckIfUserHasStatus();
 
         if (pnlOptions != null) pnlOptions.SetActive(true);
-        if (pnlLoading != null) pnlLoading.SetActive(false);
         if (pnlStar != null) pnlStar.SetActive(false);
         if (pnlBus != null) pnlBus.SetActive(false);
         if (pnlRing != null) pnlRing.SetActive(false);

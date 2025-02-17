@@ -101,6 +101,7 @@
     <Compile Include="Assets\Scripts\Exercise Manager.cs" />
     <Compile Include="Assets\Scripts\RotateAndReset.cs" />
     <Compile Include="Assets\Scripts\FontSize.cs" />
+    <Compile Include="Assets\Scripts\E 1.5 Game.cs" />
     <Compile Include="Assets\Scripts\PersistentScene.cs" />
     <Compile Include="Assets\Scripts\PacketCreator.cs" />
     <Compile Include="Assets\Scenes\Simulation\another scripts\Rope.cs" />

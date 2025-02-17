@@ -2,9 +2,9 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 
-public class BackButton : MonoBehaviour
+public class Loadscene : MonoBehaviour
 {
-    private static BackButton instance; // Singleton instance
+    private static Loadscene instance; // Singleton instance
     private static List<string> sceneHistory = new List<string>();
 
     void Awake()
@@ -42,7 +42,7 @@ public class BackButton : MonoBehaviour
         {
             sceneHistory.Add(currentScene);
 
-            // Keep only the last 5 scenes
+            // Keep only the last 10 scenes
             if (sceneHistory.Count > 10)
             {
                 sceneHistory.RemoveAt(0);
