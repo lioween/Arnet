@@ -2615,6 +2615,7 @@ MonoBehaviour:
   fontSizeSlider: {fileID: 1141568020}
   texts:
   - {fileID: 953023646}
+  - {fileID: 1738738255}
   minFontSize: 30
   maxFontSize: 50
 --- !u!4 &1199153730
@@ -3863,7 +3864,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   txtTitle: {fileID: 1498186331}
   txtText: {fileID: 953023646}
-  txtExtra1: {fileID: 0}
+  txtExtra1: {fileID: 1738738255}
   txtExtra2: {fileID: 0}
   txtExtra3: {fileID: 0}
   txtExtra4: {fileID: 0}
@@ -3901,6 +3902,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponents:
   - {fileID: 953023646}
+  - {fileID: 1738738255}
   searchField: {fileID: 1204184399}
   btnSearch: {fileID: 1322235237}
 --- !u!4 &1704691276

@@ -1,9 +1,11 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using System.Text.RegularExpressions;
+using Firebase.Firestore;
+using Firebase.Auth;
 
 public class PacketCreator : MonoBehaviour
 {
@@ -48,9 +50,27 @@ public class PacketCreator : MonoBehaviour
     private int bonusPoints = 0; // Bonus points
     private int score = 0; // Total score (1-100)
 
+    public GameObject pnlPassed; // Panel for passing (Score >= 50)
+    public GameObject pnlFailed; // Panel for failing (Score < 50)
+    public Button btnResultNext; // Button to proceed after results
+
+    // Firestore variables
+    private FirebaseFirestore db;
+    private FirebaseAuth auth;
+    private FirebaseUser currentUser;
+
+    [Header("Firestore Settings")]
+    [SerializeField] private string firestoreCollectionName; // Collection name specified in Inspector
+    [SerializeField] private string firestoreDocumentName; // Document name specified in Inspector
+    [SerializeField] private string firestoreAddDocument; // Document name specified in Inspector
+
     // Start function
     private void Start()
     {
+        db = FirebaseFirestore.DefaultInstance;
+        auth = FirebaseAuth.DefaultInstance;
+        currentUser = auth.CurrentUser;
+
         startTime = Time.time; // I-record ang oras ng simula
         step1UI.SetActive(true); // Ipakita ang Step 1 UI sa simula
         routeSelectionUI.SetActive(false); // Itago ang Step 2 UI
@@ -59,6 +79,15 @@ public class PacketCreator : MonoBehaviour
         step1ResultUI.SetActive(false); // Itago ang Step 1 Result UI
         step2ResultUI.SetActive(false); // Itago ang Step 2 Result UI
         step3ResultUI.SetActive(false); // Itago ang Step 3 Result UI
+
+        if (pnlPassed != null) pnlPassed.SetActive(false);
+        if (pnlFailed != null) pnlFailed.SetActive(false);
+
+        // Attach event listener to btnResultNext
+        if (btnResultNext != null)
+        {
+            btnResultNext.onClick.AddListener(OnResultNextClicked);
+        }
     }
 
     // Step 1: Packet Creation
@@ -237,27 +266,28 @@ public class PacketCreator : MonoBehaviour
     }
 
     // Results Screen
+    // Results Screen
     private void ShowResultsScreen()
     {
-        // Ipakita ang Results Screen UI
+        // Show Results Screen UI
         resultsScreenUI.SetActive(true);
 
-        // Kalkulahin ang Success Rate
+        // Calculate Success Rate
         float successRate = ((float)correctDecisions / totalDecisions) * 100;
         successRateText.text = "Success Rate: " + successRate.ToString("F2") + "%";
 
-        // Kalkulahin ang Total Time Taken
+        // Calculate Total Time Taken
         float totalTime = Time.time - startTime;
         totalTimeText.text = "Total Time Taken: " + totalTime.ToString("F2") + " seconds";
 
-        // Ipakita ang Bonus Points
+        // Show Bonus Points
         bonusPointsText.text = "Bonus Points: " + bonusPoints;
 
-        // Kalkulahin ang Total Score (1-100)
+        // Calculate Total Score (1-100)
         score = Mathf.Clamp((int)(successRate + bonusPoints), 0, 100); // Clamp score between 0 and 100
         scoreText.text = "Score: " + score + "/100";
 
-        // Magbigay ng Badge
+        // Award a Badge
         if (correctDecisions == totalDecisions)
         {
             badgeText.text = "Badge: Network Engineer (Perfect Choices)";
@@ -266,7 +296,7 @@ public class PacketCreator : MonoBehaviour
         {
             badgeText.text = "Badge: Troubleshooter (Fixed Errors)";
         }
-        else if (totalTime < 30) // Halimbawa, kung mabilis ang route selection
+        else if (totalTime < 30) // Example: If the route selection was fast
         {
             badgeText.text = "Badge: Fastest Router (Best Route Selection)";
         }
@@ -274,7 +304,97 @@ public class PacketCreator : MonoBehaviour
         {
             badgeText.text = "Badge: None";
         }
+
+        
     }
+
+    public void OnResultNextClicked()
+    {
+        if (score >= 50)
+        {
+            Debug.Log("🎉 Score is 50 or higher! Showing pnlPassed.");
+            if (currentUser != null)
+            {
+                string userId = currentUser.UserId; // Get current user's ID
+
+                // First document reference
+                DocumentReference quizDocRef = db.Collection("profile").Document(userId).Collection(firestoreCollectionName).Document(firestoreDocumentName);
+
+                quizDocRef.SetAsync(new
+                {
+
+                    status = "passed",
+                    timestamp = FieldValue.ServerTimestamp
+                }).ContinueWith(task =>
+                {
+                    if (task.IsCompleted)
+                    {
+                        Debug.Log($"Quiz results saved to Firestore in collection '{firestoreCollectionName}' with document name '{firestoreDocumentName}'.");
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to save quiz results: " + task.Exception);
+                    }
+                });
+
+                // Second document reference (additional document without fields)
+                DocumentReference additionalDocRef = db.Collection("profile").Document(userId).Collection(firestoreCollectionName).Document(firestoreAddDocument);
+
+                additionalDocRef.SetAsync(new { }).ContinueWith(task =>
+                {
+                    if (task.IsCompleted)
+                    {
+                        Debug.Log("Additional empty document saved to Firestore successfully.");
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to save additional empty document: " + task.Exception);
+                    }
+                });
+            }
+            else
+            {
+                Debug.LogError("No user is logged in! Cannot save results.");
+            }
+
+            if (pnlPassed != null) pnlPassed.SetActive(true);
+        }
+        else
+        {
+            Debug.Log("❌ Score is below 50. Showing pnlFailed.");
+            if (currentUser != null)
+            {
+                string userId = currentUser.UserId; // Get current user's ID
+
+                // First document reference
+                DocumentReference quizDocRef = db.Collection("profile").Document(userId).Collection(firestoreCollectionName).Document(firestoreDocumentName);
+
+                quizDocRef.SetAsync(new
+                {
+
+                    status = "failed",
+                    timestamp = FieldValue.ServerTimestamp
+                }).ContinueWith(task =>
+                {
+                    if (task.IsCompleted)
+                    {
+                        Debug.Log($"Quiz results saved to Firestore in collection '{firestoreCollectionName}' with document name '{firestoreDocumentName}'.");
+                    }
+                    else
+                    {
+                        Debug.LogError("Failed to save quiz results: " + task.Exception);
+                    }
+                });
+
+            }
+            else
+            {
+                Debug.LogError("No user is logged in! Cannot save results.");
+            }
+            if (pnlFailed != null) pnlFailed.SetActive(true);
+        }
+    }
+
 
     // Restart Game
     public void RestartGame()

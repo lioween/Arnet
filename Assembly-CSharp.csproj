@@ -63,7 +63,6 @@
     <Compile Include="Assets\Scripts\LessonAdder.cs" />
     <Compile Include="Assets\Scripts\BadgeLoader.cs" />
     <Compile Include="Assets\Scripts\ImageHelper.cs" />
-    <Compile Include="Assets\Scripts\E 1.4.cs" />
     <Compile Include="Assets\Scripts\CheckCurrentUser.cs" />
     <Compile Include="Assets\Scripts\LogoutToggle.cs" />
     <Compile Include="Assets\Scenes\Simulation\CMDInterface.cs" />
@@ -81,6 +80,7 @@
     <Compile Include="Assets\Scenes\Simulation\NetworkManager.cs" />
     <Compile Include="Assets\Scenes\Simulation\MessageSender.cs" />
     <Compile Include="Assets\GoogleSignIn\Future.cs" />
+    <Compile Include="Assets\Scripts\E 1.4 Manager.cs" />
     <Compile Include="Assets\Scenes\Simulation\NetworkMessage.cs" />
     <Compile Include="Assets\Scripts\PlaceOnIndicator\PlaceOnIndicator.cs" />
     <Compile Include="Assets\GoogleSignIn\Impl\BaseObject.cs" />
@@ -97,8 +97,8 @@
     <Compile Include="Assets\Scripts\QuizManager.cs" />
     <Compile Include="Assets\Scripts\ShowHidePw.cs" />
     <Compile Include="Assets\Scripts\ExerciseToggle.cs" />
-    <Compile Include="Assets\Scripts\ExerciseManager.cs" />
     <Compile Include="Assets\Scripts\WelcomeLoader.cs" />
+    <Compile Include="Assets\Scripts\Exercise Manager.cs" />
     <Compile Include="Assets\Scripts\RotateAndReset.cs" />
     <Compile Include="Assets\Scripts\FontSize.cs" />
     <Compile Include="Assets\Scripts\PersistentScene.cs" />
@@ -107,6 +107,7 @@
     <Compile Include="Assets\GoogleSignIn\GoogleSignIn.cs" />
     <Compile Include="Assets\Scripts\SearchText.cs" />
     <Compile Include="Assets\Scripts\TextToSpeech.cs" />
+    <Compile Include="Assets\Scripts\E 1.4 Game.cs" />
     <Compile Include="Assets\Scenes\Simulation\another scripts\DragObject.cs" />
     <Compile Include="Assets\Scripts\ProfileLoader.cs" />
     <Compile Include="Assets\Scripts\Rotate3D.cs" />

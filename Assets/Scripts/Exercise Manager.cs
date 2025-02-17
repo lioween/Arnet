@@ -23,6 +23,7 @@ public class ExerciseManager : MonoBehaviour
     [SerializeField] private string firestoreCollectionName; // Collection name specified in Inspector
     [SerializeField] private string firestoreDocumentName; // Document name specified in Inspector
     [SerializeField] private string firestoreAddDocument; // Document name specified in Inspector
+
     void Start()
     {
         // Initialize Firebase
@@ -37,6 +38,7 @@ public class ExerciseManager : MonoBehaviour
         }
 
         CheckIfUserHasStatus();
+
     }
 
     public void CheckIfUserHasStatus()
