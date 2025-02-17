@@ -497,7 +497,7 @@ GameObject:
   - component: {fileID: 433842255}
   - component: {fileID: 433842254}
   m_Layer: 5
-  m_Name: Video1 (1)
+  m_Name: Video1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1862,7 +1862,7 @@ GameObject:
   - component: {fileID: 844986505}
   - component: {fileID: 844986504}
   m_Layer: 0
-  m_Name: Video1 (2)
+  m_Name: Video1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1882,7 +1882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 433842253}
   scrollView: {fileID: 812414783}
-  videoURL: https://www.youtube.com/embed/f9jA3GvRymk?si=oaIBX9w2jvYVWoVT
+  videoURL: https://www.youtube.com/embed/hWzbbQV0xWg?si=SnAK-8vA7OoQvIlk
 --- !u!4 &844986505
 Transform:
   m_ObjectHideFlags: 0
@@ -3010,6 +3010,18 @@ MonoBehaviour:
       - m_Target: {fileID: 1514471056}
         m_TargetAssemblyTypeName: ToggleObject, Assembly-CSharp
         m_MethodName: SetActive
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 844986504}
+        m_TargetAssemblyTypeName: FirebaseWebView, Assembly-CSharp
+        m_MethodName: StopVideo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 
-public class FirebaseWebView : MonoBehaviour
+public class VideoLink : MonoBehaviour
 {
     public RectTransform panel; // The panel containing the WebView
     public ScrollRect scrollView; // Assign your ScrollView here
