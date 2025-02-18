@@ -302,6 +302,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/1. Introduction to Networking/E 1.5.unity
     guid: ac4e278cb59432f48839a3c03831050d
+  - enabled: 1
+    path: Assets/Scenes/2. Types of Networks/E 2.2.unity
+    guid: da0cd3077ab743f41ae67235331e42f0
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 325820886b7993e4c8118e8c4d5639ea, type: 2}
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: d020a229620ce2e4e9e092a8d19e8181, type: 2}

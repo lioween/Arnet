@@ -5917,8 +5917,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0023384, y: -408}
-  m_SizeDelta: {x: 389.0896, y: 59.6281}
+  m_AnchoredPosition: {x: -0.00033188, y: -420}
+  m_SizeDelta: {x: 507.11, y: 59.6281}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &881574766
 MonoBehaviour:
@@ -8765,7 +8765,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000011444, y: -34}
-  m_SizeDelta: {x: 507.1086, y: 524.05}
+  m_SizeDelta: {x: 507.1086, y: 611.89}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1218272134
 MonoBehaviour:
@@ -8801,11 +8801,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Instructions:</b>\n\n1. Choose a Topology \u2013 Select a network topology
-    to start designing. \n2. Add Devices \u2013 Pick computers, routers, switches,
-    and cables for your network. \n3. Connect Devices \u2013 Define how devices should
-    be connected based on the chosen topology. \n4. Submit \u2013 Finalize your design,
-    and check your results!"
+  m_text: "<b>Instructions:</b>\n\n1. Create a Packet \u2013 Label it with source
+    & destination IP, and add a sequence number for bonus points.\n2. Choose a Route
+    \u2013 Select the best path for the packet to travel through the network.\n3.
+    Reassemble the Packet \u2013 Ensure packets arrive correctly by reordering them
+    or requesting a resend.\n4. Check Results \u2013 See your success rate, total
+    time taken, and earn badges based on your performance!"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d616741d7ff066a499eb3d6db5d77dcc, type: 2}
   m_sharedMaterial: {fileID: -2352361283333279779, guid: d616741d7ff066a499eb3d6db5d77dcc, type: 2}

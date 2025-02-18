@@ -24,7 +24,7 @@ public class E14Manager : MonoBehaviour
     [SerializeField] private string firestoreDocumentName; // Document name specified in Inspector
     [SerializeField] private string firestoreAddDocument; // Document name specified in Inspector
 
-    public GameObject pnlOptions;  // Panel containing topology buttons
+    public GameObject pnlTopology;  // Panel containing topology buttons
     public GameObject pnlLoading;  // Loading panel before showing the selected topology
     public GameObject pnlStar;     // Panel for Star Topology
     public GameObject pnlBus;      // Panel for Bus Topology
@@ -58,7 +58,7 @@ public class E14Manager : MonoBehaviour
 
         CheckIfUserHasStatus();
 
-        if (pnlOptions != null) pnlOptions.SetActive(true);
+        if (pnlTopology != null) pnlTopology.SetActive(true);
         if (pnlStar != null) pnlStar.SetActive(false);
         if (pnlBus != null) pnlBus.SetActive(false);
         if (pnlRing != null) pnlRing.SetActive(false);
@@ -84,7 +84,7 @@ public class E14Manager : MonoBehaviour
     }
 
     // Called when Finish button is clicked
-    public void OnFinishClicked()
+    public void OnNextClicked()
     {
         if (selectedButton == null) return; // Prevents errors
 
@@ -92,7 +92,7 @@ public class E14Manager : MonoBehaviour
         if (pnlLoading != null) pnlLoading.SetActive(true);
 
         // Hide options panel
-        if (pnlOptions != null) pnlOptions.SetActive(false);
+        if (pnlTopology != null) pnlTopology.SetActive(false);
 
         // Start coroutine to display the correct panel after a short delay
         StartCoroutine(ShowSelectedPanel());
@@ -190,5 +190,18 @@ public class E14Manager : MonoBehaviour
             pnlPassed.SetActive(false);
             pnlFailed.SetActive(false);
         }
+    }
+
+    public void RestartGame()
+    {
+        pnlPassed.SetActive(false);
+        pnlFailed.SetActive(false);
+        pnlTopology.SetActive(true);
+        pnlStar.SetActive(false);
+        pnlBus.SetActive(false);
+        pnlRing.SetActive(false);
+        pnlMesh.SetActive(false);
+        pnlHybrid.SetActive(false);
+        
     }
 }

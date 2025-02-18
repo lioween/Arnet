@@ -1065,8 +1065,10 @@ MonoBehaviour:
   pnlPing: {fileID: 1962258091}
   btnPCPing: {fileID: 1617612574}
   pnlPCPing: {fileID: 1112652772}
+  PCPingIcon: {fileID: 371455164}
   btnPhonePing: {fileID: 781950707}
   pnlPhonePing: {fileID: 621604904}
+  PhonePingIcon: {fileID: 783011371}
   pnlSecure: {fileID: 1059167963}
   btnSecure: {fileID: 2092232071}
   pnlPassword: {fileID: 660068964}
@@ -1079,6 +1081,8 @@ MonoBehaviour:
   pnlLoading: {fileID: 165604635}
   firestoreCollectionName: 1.0
   firestoreDocumentName: 1.5
+  AddCollection: 2.0
+  AddDocument: 2.1
 --- !u!4 &190193623
 Transform:
   m_ObjectHideFlags: 0
@@ -2016,6 +2020,81 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 342829366}
   m_CullTransparentMesh: 1
+--- !u!1 &371455164
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 371455167}
+  - component: {fileID: 371455166}
+  - component: {fileID: 371455165}
+  m_Layer: 5
+  m_Name: PCPing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &371455165
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371455164}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 053d287236ec9bd40a9369489c886e25, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &371455166
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371455164}
+  m_CullTransparentMesh: 1
+--- !u!224 &371455167
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 371455164}
+  m_LocalRotation: {x: -0, y: -0, z: 0.50284237, w: 0.86437815}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2029288298}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 60.376}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -98.814, y: 74}
+  m_SizeDelta: {x: 197.6289, y: 5.6784}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &395530466
 GameObject:
   m_ObjectHideFlags: 0
@@ -2983,11 +3062,11 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Instructions:</b>\n\n1. Choose a Topology \u2013 Select a network topology
-    to start designing. \n2. Add Devices \u2013 Pick computers, routers, switches,
-    and cables for your network. \n3. Connect Devices \u2013 Define how devices should
-    be connected based on the chosen topology. \n4. Submit \u2013 Finalize your design,
-    and check your results!"
+  m_text: "<b>Instructions:</b>\n\n1. Add Devices \u2013 Add a PC and smartphone
+    to the network.\n2. Connect to Router \u2013 Click \"Connect\" to automatically
+    assign IP addresses and establish connections.\n3. Test Connectivity \u2013 Click
+    \"Ping\" to check if devices can communicate.\n4. Secure the Network \u2013 Click
+    \"Set Password\" to set a strong router password."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d616741d7ff066a499eb3d6db5d77dcc, type: 2}
   m_sharedMaterial: {fileID: -2352361283333279779, guid: d616741d7ff066a499eb3d6db5d77dcc, type: 2}
@@ -4990,6 +5069,81 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!1 &783011371
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 783011374}
+  - component: {fileID: 783011373}
+  - component: {fileID: 783011372}
+  m_Layer: 5
+  m_Name: PhonePing
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 0
+--- !u!114 &783011372
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783011371}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 21300000, guid: 053d287236ec9bd40a9369489c886e25, type: 3}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &783011373
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783011371}
+  m_CullTransparentMesh: 1
+--- !u!224 &783011374
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 783011371}
+  m_LocalRotation: {x: -0, y: -0, z: 0.882234, w: 0.47081128}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2029288298}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 123.826}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 132, y: 72}
+  m_SizeDelta: {x: 197.6289, y: 5.6784}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &793419126
 GameObject:
   m_ObjectHideFlags: 0
@@ -8068,7 +8222,7 @@ MonoBehaviour:
       m_Calls: []
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 8e7c2eb9c7e46414db3fd156b15780eb, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: f229a8dbc3b18524eb6e166df53df3fc, type: 2}
   m_sharedMaterial: {fileID: 2739128810558996681, guid: 8e7c2eb9c7e46414db3fd156b15780eb, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -8099,7 +8253,7 @@ MonoBehaviour:
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
   m_fontSizeMax: 72
-  m_fontStyle: 0
+  m_fontStyle: 1
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
   m_textAlignment: 65535
@@ -8132,7 +8286,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
-  m_hasFontAssetChanged: 0
+  m_hasFontAssetChanged: 1
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
 --- !u!1 &1351505869
@@ -11848,6 +12002,8 @@ RectTransform:
   - {fileID: 1146645407}
   - {fileID: 470724626}
   - {fileID: 1814944054}
+  - {fileID: 371455167}
+  - {fileID: 783011374}
   - {fileID: 1962258092}
   - {fileID: 1112652773}
   - {fileID: 621604905}
@@ -12171,8 +12327,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.0023384, y: -408}
-  m_SizeDelta: {x: 389.0896, y: 59.6281}
+  m_AnchoredPosition: {x: -0.00083542, y: -408}
+  m_SizeDelta: {x: 507.11, y: 59.6281}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &2054048371
 MonoBehaviour:

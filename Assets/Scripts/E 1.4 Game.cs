@@ -1,4 +1,4 @@
-using Firebase.Firestore;
+﻿using Firebase.Firestore;
 using Firebase.Auth;
 using UnityEngine;
 using UnityEngine.UI;
@@ -181,8 +181,8 @@ public class E14game : MonoBehaviour
 
                 // First document reference
                 DocumentReference quizDocRef = db.Collection("profile").Document(userId).Collection(firestoreCollectionName).Document(firestoreDocumentName);
-
-                quizDocRef.SetAsync(new
+               
+                    quizDocRef.SetAsync(new
                 {
                     
                     status = "passed",
@@ -290,5 +290,39 @@ public class E14game : MonoBehaviour
 
         // Show the failed panel
         if (pnlFailed != null) pnlFailed.SetActive(true);
+    }
+
+    public void RestartGame()
+    {
+        Debug.Log("🔄 Restarting game...");
+
+        // Reset all values
+        PCcurrentIndex = 0;
+        RoutercurrentIndex = 0;
+        PCcount = PCToShow.Length;
+        Routercount = RouterToShow.Length;
+        selectedButton = null;
+
+        // Reset UI elements
+        if (PCnumber != null) PCnumber.text = PCcount.ToString();
+        if (Routernumber != null) Routernumber.text = Routercount.ToString();
+
+        // Enable buttons
+        if (btnPC != null) btnPC.interactable = true;
+        if (btnRouter != null) btnRouter.interactable = true;
+        if (finishButton != null) finishButton.interactable = false;
+
+        // Hide panels
+        pnlOptions?.SetActive(false);
+        pnlLines?.SetActive(false);
+        pnlPassed?.SetActive(false);
+        pnlFailed?.SetActive(false);
+        pnlLoading?.SetActive(false);
+
+        // Hide all PCs and Routers
+        foreach (GameObject obj in PCToShow) if (obj != null) obj.SetActive(false);
+        foreach (GameObject obj in RouterToShow) if (obj != null) obj.SetActive(false);
+
+        Debug.Log("✅ Game Reset Complete!");
     }
 }

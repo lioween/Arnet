@@ -32,8 +32,10 @@ public class E15Game : MonoBehaviour
     public GameObject pnlPing;
     public Button btnPCPing;
     public GameObject pnlPCPing;
+    public GameObject PCPingIcon;
     public Button btnPhonePing;
     public GameObject pnlPhonePing;
+    public GameObject PhonePingIcon;
 
     [Header("Secure Network")]
     public GameObject pnlSecure;
@@ -57,6 +59,9 @@ public class E15Game : MonoBehaviour
     [Header("Firestore Settings")]
     [SerializeField] private string firestoreCollectionName; // Collection name specified in Inspector
     [SerializeField] private string firestoreDocumentName; // Document name specified in Inspector
+    [SerializeField] private string AddCollection; // Document name specified in Inspector
+    [SerializeField] private string AddDocument; // Document name specified in Inspector
+
 
     void Start()
     {
@@ -123,8 +128,6 @@ public class E15Game : MonoBehaviour
         {
             pnlConnect.SetActive(false);
             pnlPing.SetActive(true);
-            PCWifi.SetActive(false);
-            PhoneWifi.SetActive(false);
         }
     }
 
@@ -152,8 +155,6 @@ public class E15Game : MonoBehaviour
         {
             pnlConnect.SetActive(false);
             pnlPing.SetActive(true);
-            PCWifi.SetActive(false);
-            PhoneWifi.SetActive(false);
         }
     }
 
@@ -175,9 +176,9 @@ public class E15Game : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         pnlPCPing.SetActive(false);
-        PCWifi.SetActive(true);
+        PCPingIcon.SetActive(true);
 
-        if (PhoneWifi.activeSelf)
+        if (PhonePingIcon.activeSelf)
         {
             pnlPing.SetActive(false);
             pnlSecure.SetActive(true);
@@ -202,9 +203,9 @@ public class E15Game : MonoBehaviour
         yield return new WaitForSeconds(1.5f);
 
         pnlPhonePing.SetActive(false);
-        PhoneWifi.SetActive(true);
+        PhonePingIcon.SetActive(true);
 
-        if (PCWifi.activeSelf)
+        if (PCPingIcon.activeSelf)
         {
             pnlPing.SetActive(false);
             pnlSecure.SetActive(true);
@@ -224,6 +225,7 @@ public class E15Game : MonoBehaviour
     public IEnumerator ValidateInput()
     {
         string input = inpPw.text;
+        string userId = currentUser.UserId; // Get current user's ID
 
         // ✅ Check if input meets all validation rules
         if (IsValidInput(input))
@@ -234,11 +236,11 @@ public class E15Game : MonoBehaviour
             yield return new WaitForSeconds(2f);
             pnlPwNotif.SetActive(false);
             pnlPassword.SetActive(false);
+            pnlSecure.SetActive(false);
 
 
             if (currentUser != null)
             {
-                string userId = currentUser.UserId; // Get current user's ID
 
                 // First document reference
                 DocumentReference quizDocRef = db.Collection("profile").Document(userId).Collection(firestoreCollectionName).Document(firestoreDocumentName);
@@ -259,9 +261,44 @@ public class E15Game : MonoBehaviour
                     }
                 });
 
-            }
+                // Reference to the "profile" collection for the current user
+                DocumentReference userProfileRef = db.Collection("profile").Document(userId);
 
-            pnlLoading.SetActive(true);
+                // Check if the specified collection already exists
+                var task = userProfileRef.Collection(AddCollection).GetSnapshotAsync();
+                yield return new WaitUntil(() => task.IsCompleted); // Wait for the task to complete
+
+
+                if (task.IsFaulted || task.IsCanceled)
+                {
+                    Debug.LogError("Failed to check for existing collection: " + task.Exception);
+                    yield break;
+                }
+
+                QuerySnapshot querySnapshot = task.Result;
+
+                if (querySnapshot.Count == 0) // If the collection is empty
+                {
+                    // Add an empty document to create the collection
+                    var innerTask = userProfileRef.Collection(AddCollection).Document(AddDocument).SetAsync(new { });
+                    yield return new WaitUntil(() => innerTask.IsCompleted); // Wait for the inner task to complete
+
+                    if (innerTask.IsFaulted || innerTask.IsCanceled)
+                    {
+                        Debug.LogError("Failed to add collection: " + innerTask.Exception);
+                        yield break;
+                    }
+
+                    Debug.Log("Collection with name '" + AddCollection + "' and Document '" + AddDocument + "' has been added.");
+                }
+                else
+                {
+                    Debug.Log("Collection '" + AddCollection + "' already exists.");
+                }
+            }
+        
+
+        pnlLoading.SetActive(true);
             yield return new WaitForSeconds(1f);
             pnlLoading.SetActive(false);
             pnlPassed.SetActive(true);

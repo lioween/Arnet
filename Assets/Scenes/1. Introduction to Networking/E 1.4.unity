@@ -175,8 +175,7 @@ MonoBehaviour:
   btnPC: {fileID: 119068129}
   PCnumber: {fileID: 47260131}
   PCcount: 5
-  RouterToShow:
-  - {fileID: 0}
+  RouterToShow: []
   btnRouter: {fileID: 0}
   Routernumber: {fileID: 0}
   Routercount: 0
@@ -830,6 +829,7 @@ GameObject:
   - component: {fileID: 47879500}
   - component: {fileID: 47879499}
   - component: {fileID: 47879498}
+  - component: {fileID: 47879501}
   m_Layer: 5
   m_Name: btnBus
   m_TagString: Untagged
@@ -951,6 +951,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 47879496}
   m_CullTransparentMesh: 1
+--- !u!114 &47879501
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 47879496}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &48450370
 GameObject:
   m_ObjectHideFlags: 0
@@ -8313,6 +8328,7 @@ GameObject:
   - component: {fileID: 793486313}
   - component: {fileID: 793486312}
   - component: {fileID: 793486311}
+  - component: {fileID: 793486314}
   m_Layer: 5
   m_Name: btnHybrid
   m_TagString: Untagged
@@ -8422,6 +8438,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 793486309}
   m_CullTransparentMesh: 1
+--- !u!114 &793486314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793486309}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &794065079
 GameObject:
   m_ObjectHideFlags: 0
@@ -11045,8 +11076,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 1923127106}
-        m_TargetAssemblyTypeName: ExerciseManager, Assembly-CSharp
-        m_MethodName: OnFinishClicked
+        m_TargetAssemblyTypeName: E14Manager, Assembly-CSharp
+        m_MethodName: OnNextClicked
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -13477,6 +13508,7 @@ GameObject:
   - component: {fileID: 1182726557}
   - component: {fileID: 1182726556}
   - component: {fileID: 1182726555}
+  - component: {fileID: 1182726558}
   m_Layer: 5
   m_Name: btnStar
   m_TagString: Untagged
@@ -13598,6 +13630,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1182726553}
   m_CullTransparentMesh: 1
+--- !u!114 &1182726558
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182726553}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1188826379
 GameObject:
   m_ObjectHideFlags: 0
@@ -14041,16 +14088,64 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 5513341773210212363, guid: 129475b6332ec524e83d9d073efb7df3, type: 3}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
-        m_MethodName: LoadSceneByName
-        m_Mode: 5
+      - m_Target: {fileID: 190784120}
+        m_TargetAssemblyTypeName: E14game, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 1.5
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5515889}
+        m_TargetAssemblyTypeName: E14game, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1444371379}
+        m_TargetAssemblyTypeName: E14game, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1389027094}
+        m_TargetAssemblyTypeName: E14game, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1923127106}
+        m_TargetAssemblyTypeName: E14Manager, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1256492645
@@ -15030,6 +15125,7 @@ GameObject:
   - component: {fileID: 1325755270}
   - component: {fileID: 1325755269}
   - component: {fileID: 1325755268}
+  - component: {fileID: 1325755271}
   m_Layer: 5
   m_Name: btnRing
   m_TagString: Untagged
@@ -15151,6 +15247,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1325755266}
   m_CullTransparentMesh: 1
+--- !u!114 &1325755271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1325755266}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1333599628
 GameObject:
   m_ObjectHideFlags: 0
@@ -15503,6 +15614,7 @@ GameObject:
   - component: {fileID: 1363221705}
   - component: {fileID: 1363221704}
   - component: {fileID: 1363221703}
+  - component: {fileID: 1363221706}
   m_Layer: 5
   m_Name: btnMesh
   m_TagString: Untagged
@@ -15624,6 +15736,21 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1363221701}
   m_CullTransparentMesh: 1
+--- !u!114 &1363221706
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1363221701}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e19747de3f5aca642ab2be37e372fb86, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_EffectColor: {r: 1, g: 1, b: 1, a: 0.5}
+  m_EffectDistance: {x: 2, y: -2}
+  m_UseGraphicAlpha: 1
 --- !u!1 &1376576942
 GameObject:
   m_ObjectHideFlags: 0
@@ -15959,8 +16086,7 @@ MonoBehaviour:
   btnPC: {fileID: 1596692480}
   PCnumber: {fileID: 1596100979}
   PCcount: 5
-  RouterToShow:
-  - {fileID: 0}
+  RouterToShow: []
   btnRouter: {fileID: 0}
   Routernumber: {fileID: 0}
   Routercount: 0
@@ -17052,7 +17178,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Create Your Own Topology!
+  m_text: Create Network Topology
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8e7c2eb9c7e46414db3fd156b15780eb, type: 2}
   m_sharedMaterial: {fileID: 2739128810558996681, guid: 8e7c2eb9c7e46414db3fd156b15780eb, type: 2}
@@ -17061,8 +17187,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4293195517
+  m_fontColor: {r: 0.99215686, g: 0.9647059, b: 0.89411765, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -19590,11 +19716,11 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 175144752}
   - {fileID: 1466946577}
   - {fileID: 1802075211}
   - {fileID: 1028640383}
   - {fileID: 1001235216}
-  - {fileID: 175144752}
   m_Father: {fileID: 333887801}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -24235,7 +24361,7 @@ MonoBehaviour:
   firestoreCollectionName: 1.0
   firestoreDocumentName: 1.4
   firestoreAddDocument: 1.5
-  pnlOptions: {fileID: 1028640382}
+  pnlTopology: {fileID: 1028640382}
   pnlLoading: {fileID: 1456509928}
   pnlStar: {fileID: 914425683}
   pnlBus: {fileID: 1403609127}
@@ -25805,9 +25931,57 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: QuizManager, Assembly-CSharp
-        m_MethodName: TryAgain
+      - m_Target: {fileID: 190784120}
+        m_TargetAssemblyTypeName: E14game, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 5515889}
+        m_TargetAssemblyTypeName: E14game, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1444371379}
+        m_TargetAssemblyTypeName: E14game, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1389027094}
+        m_TargetAssemblyTypeName: E14game, Assembly-CSharp
+        m_MethodName: RestartGame
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1923127106}
+        m_TargetAssemblyTypeName: E14Manager, Assembly-CSharp
+        m_MethodName: RestartGame
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
