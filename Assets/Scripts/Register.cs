@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using Firebase;
 using Firebase.Auth;
 using Firebase.Firestore;
@@ -205,9 +205,9 @@ public class FirebaseRegistration : MonoBehaviour
             return false;
         }
 
-        if (!Regex.IsMatch(password, @"[@$!%*?&#+]"))
+        if (!Regex.IsMatch(password, @"[!@#$%^&*()_+\-=\[\]{}|\\:;'<>,.?/]"))
         {
-            errorMessage = "Must include at least one special character.";
+            errorMessage = "❌ Must include at least one special character.";
             return false;
         }
 

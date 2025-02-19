@@ -66,6 +66,7 @@
     <Compile Include="Assets\Scripts\CheckCurrentUser.cs" />
     <Compile Include="Assets\Scenes\Simulation\CMDInterface.cs" />
     <Compile Include="Assets\Scripts\ProgressManager.cs" />
+    <Compile Include="Assets\Scripts\E 2.5.cs" />
     <Compile Include="Assets\Scripts\Login.cs" />
     <Compile Include="Assets\Scripts\GoogleLogin.cs" />
     <Compile Include="Assets\Scenes\Simulation\another scripts\ModelInteractionManager.cs" />
@@ -93,6 +94,7 @@
     <Compile Include="Assets\Scripts\VideoLink.cs" />
     <Compile Include="Assets\Scripts\TTSManager.cs" />
     <Compile Include="Assets\GoogleSignIn\Impl\GoogleSignInImpl.cs" />
+    <Compile Include="Assets\Scripts\E 2.3.cs" />
     <Compile Include="Assets\Scripts\HomeLocked.cs" />
     <Compile Include="Assets\GoogleSignIn\Impl\SignInHelperObject.cs" />
     <Compile Include="Assets\Scripts\QuizManager.cs" />
@@ -104,6 +106,7 @@
     <Compile Include="Assets\Scripts\FontSize.cs" />
     <Compile Include="Assets\Scripts\E 1.5 Game.cs" />
     <Compile Include="Assets\Scripts\PersistentScene.cs" />
+    <Compile Include="Assets\Scripts\TrueFalseManager.cs" />
     <Compile Include="Assets\Scripts\PacketCreator.cs" />
     <Compile Include="Assets\Scenes\Simulation\another scripts\Rope.cs" />
     <Compile Include="Assets\GoogleSignIn\GoogleSignIn.cs" />

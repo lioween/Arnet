@@ -1049,8 +1049,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.1541748, y: 0}
-  m_SizeDelta: {x: -115.71, y: -1481.0618}
+  m_AnchoredPosition: {x: 1, y: 10}
+  m_SizeDelta: {x: -175.5248, y: -1481.0618}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &44956198
 GameObject:
@@ -5366,8 +5366,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.1541748, y: 0}
-  m_SizeDelta: {x: -115.71, y: -1481.0618}
+  m_AnchoredPosition: {x: 1, y: 10}
+  m_SizeDelta: {x: -175.5248, y: -1481.0618}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &301838871
 GameObject:
@@ -10147,8 +10147,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.1541748, y: 0}
-  m_SizeDelta: {x: -115.71, y: -1481.0618}
+  m_AnchoredPosition: {x: 1, y: 10}
+  m_SizeDelta: {x: -175.5248, y: -1481.0618}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &560891583
 GameObject:
@@ -14644,8 +14644,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.1541748, y: 0}
-  m_SizeDelta: {x: -115.71, y: -1481.0618}
+  m_AnchoredPosition: {x: -5, y: 3}
+  m_SizeDelta: {x: -161.0804, y: -1481.0618}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &887513350
 GameObject:
@@ -17818,8 +17818,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.1541748, y: 0}
-  m_SizeDelta: {x: -115.71, y: -1481.0618}
+  m_AnchoredPosition: {x: -5, y: 3}
+  m_SizeDelta: {x: -161.0804, y: -1481.0618}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1080556327
 GameObject:
@@ -19324,9 +19324,9 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1553235745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6.0000005, y: 321.99994}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -3.9999917, y: -167.00009}
   m_SizeDelta: {x: 554.61, y: 76.7348}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1171532143
@@ -19705,7 +19705,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -0.000011444, y: -34}
-  m_SizeDelta: {x: 507.1086, y: 524.05}
+  m_SizeDelta: {x: 507.1086, y: 655.81}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1197364390
 MonoBehaviour:
@@ -19741,11 +19741,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<b>Instructions:</b>\n\n1. Add Devices \u2013 Add a PC and smartphone
-    to the network.\n2. Connect to Router \u2013 Click \"Connect\" to automatically
-    assign IP addresses and establish connections.\n3. Test Connectivity \u2013 Click
-    \"Ping\" to check if devices can communicate.\n4. Secure the Network \u2013 Click
-    \"Set Password\" to set a strong router password."
+  m_text: "<b>Instructions:</b>\n\n1. Choose a Topology \u2013 Select a layout for
+    your LAN setup.\n2. Add Devices \u2013 Add Router, PCs, and printer to your network.\n3.
+    Connect Devices \u2013 Link devices based on the selected topology.\n4. Configure
+    Router \u2013 Set up the network name (SSID) and password.\n5. Assign IP Addresses
+    \u2013 Enable automatic (DHCP) IP assignment.\n6. Test Connectivity \u2013 Check
+    if devices can communicate successfully."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d616741d7ff066a499eb3d6db5d77dcc, type: 2}
   m_sharedMaterial: {fileID: -2352361283333279779, guid: d616741d7ff066a499eb3d6db5d77dcc, type: 2}
@@ -26200,8 +26201,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00001806, y: 0.000015259}
-  m_SizeDelta: {x: 618.1144, y: 1024.9713}
+  m_AnchoredPosition: {x: -0.00001806, y: 0.000022888}
+  m_SizeDelta: {x: 618.1144, y: 1058.5424}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1553235746
 MonoBehaviour:
@@ -26855,10 +26856,10 @@ RectTransform:
   - {fileID: 473544492}
   m_Father: {fileID: 1553235745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.00083542, y: -408}
-  m_SizeDelta: {x: 507.11, y: 59.6281}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: -0.00065458, y: 78}
+  m_SizeDelta: {x: 507.11, y: 59.628113}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1590980305
 MonoBehaviour:
@@ -27891,8 +27892,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.1541748, y: 0}
-  m_SizeDelta: {x: -115.71, y: -1481.0618}
+  m_AnchoredPosition: {x: 1, y: 10}
+  m_SizeDelta: {x: -175.5248, y: -1481.0618}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1649339478
 GameObject:
@@ -29018,8 +29019,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.1541748, y: 0}
-  m_SizeDelta: {x: -115.71, y: -1481.0618}
+  m_AnchoredPosition: {x: 1, y: 10}
+  m_SizeDelta: {x: -175.5248, y: -1481.0618}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1781688268
 GameObject:
@@ -30549,10 +30550,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1553235745}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -6, y: 384}
-  m_SizeDelta: {x: 554.61, y: 100.285}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: -4, y: -105}
+  m_SizeDelta: {x: 554.61, y: 100.285034}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1880796681
 MonoBehaviour:
@@ -32056,8 +32057,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.1541748, y: 0}
-  m_SizeDelta: {x: -115.71, y: -1481.0618}
+  m_AnchoredPosition: {x: -5, y: 3}
+  m_SizeDelta: {x: -161.0804, y: -1481.0618}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2022643325
 GameObject:
@@ -33017,8 +33018,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -0.1541748, y: 0}
-  m_SizeDelta: {x: -115.71, y: -1481.0618}
+  m_AnchoredPosition: {x: 1, y: 10}
+  m_SizeDelta: {x: -175.5248, y: -1481.0618}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2129128246
 GameObject:
