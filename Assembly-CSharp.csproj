@@ -70,6 +70,7 @@
     <Compile Include="Assets\Scripts\Login.cs" />
     <Compile Include="Assets\Scripts\GoogleLogin.cs" />
     <Compile Include="Assets\Scenes\Simulation\another scripts\ModelInteractionManager.cs" />
+    <Compile Include="Assets\Scripts\RearrangeButtons.cs" />
     <Compile Include="Assets\Scenes\Simulation\animation script\PanelController.cs" />
     <Compile Include="Assets\Scripts\BookmarkManager.cs" />
     <Compile Include="Assets\Scripts\CatalogVideo.cs" />
@@ -112,6 +113,7 @@
     <Compile Include="Assets\GoogleSignIn\GoogleSignIn.cs" />
     <Compile Include="Assets\Scripts\SearchText.cs" />
     <Compile Include="Assets\Scripts\TextToSpeech.cs" />
+    <Compile Include="Assets\Scripts\ImageQuizManager.cs" />
     <Compile Include="Assets\Scripts\E 1.4 Game.cs" />
     <Compile Include="Assets\Scenes\Simulation\another scripts\DragObject.cs" />
     <Compile Include="Assets\Scripts\ProfileLoader.cs" />

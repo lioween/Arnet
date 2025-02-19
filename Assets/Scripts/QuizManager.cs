@@ -45,6 +45,7 @@ public class QuizManager : MonoBehaviour
     [Header("Firestore Settings")]
     [SerializeField] private string firestoreCollectionName; // Collection name specified in Inspector
     [SerializeField] private string firestoreDocumentName; // Document name specified in Inspector
+    [SerializeField] private string firestoreAddCollection; // Document name specified in Inspector
     [SerializeField] private string firestoreAddDocument; // Document name specified in Inspector
 
 
@@ -184,7 +185,6 @@ public class QuizManager : MonoBehaviour
 
                 quizDocRef.SetAsync(new
                 {
-                    title = txtTitle.text, // Assuming txtTitle is defined and holds the quiz title
                     score = score,
                     status = "passed",
                     timestamp = FieldValue.ServerTimestamp
@@ -238,7 +238,6 @@ public class QuizManager : MonoBehaviour
 
                 quizDocRef.SetAsync(new
                 {
-                    title = txtTitle.text, // Assuming txtTitle is defined and holds the quiz title
                     score = score,
                     status = "failed",
                     timestamp = FieldValue.ServerTimestamp
@@ -524,6 +523,8 @@ public class QuizManager : MonoBehaviour
         
 
     }
+
+
 
 
 
