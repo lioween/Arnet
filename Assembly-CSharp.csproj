@@ -82,6 +82,7 @@
     <Compile Include="Assets\Scenes\Simulation\NetworkManager.cs" />
     <Compile Include="Assets\Scenes\Simulation\MessageSender.cs" />
     <Compile Include="Assets\GoogleSignIn\Future.cs" />
+    <Compile Include="Assets\Scripts\TextQuizManager.cs" />
     <Compile Include="Assets\Scripts\ArrangeQuiz.cs" />
     <Compile Include="Assets\Scripts\E 2.2.cs" />
     <Compile Include="Assets\Scripts\E 1.4 Manager.cs" />
