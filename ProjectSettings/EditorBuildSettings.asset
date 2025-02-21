@@ -35,27 +35,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Catalog.unity
     guid: 02a7aa3cea9b1a04dbea0d12cf696d3e
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Catalog/Cables.unity
     guid: 5b3304607c476e346a6b655e38e7c161
-  - enabled: 1
-    path: Assets/Scenes/Catalog/Network Devices/Network-Devices.unity
-    guid: 84e5b7e68b2751b4cb5c4f459454423d
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Catalog/End-Devices.unity
     guid: 90512be77a7a9b0408dcebac56c06970
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Catalog/Equipment.unity
     guid: 7a4badf93a071834692a87f07d9803d4
-  - enabled: 1
-    path: Assets/Scenes/Catalog/Network Devices/Router.unity
-    guid: e45ad542b9e4c70439da743429ad36a7
-  - enabled: 1
-    path: Assets/Scenes/Catalog/Network Devices/Switch.unity
-    guid: 8afe7c7ef4888674f86c5c62ece4dcf8
-  - enabled: 1
-    path: Assets/Scenes/Catalog/Network Devices/SwitchAR.unity
-    guid: 0de9b4938fc80e043be4efbae7a3eea3
   - enabled: 1
     path: Assets/Scenes/Profile.unity
     guid: 780c80e03516fef4993ee4c29469447f
@@ -81,7 +69,7 @@ EditorBuildSettings:
     path: Assets/Scenes/1. Introduction to Networking/E 1.1.unity
     guid: 31cc27d1b5cd0eb43adc1119c4e19f00
   - enabled: 1
-    path: Assets/Scenes/Old Exercises/E 1.2_1.unity
+    path: Assets/Scenes/Old/E 1.2_1.unity
     guid: 5cfbbc0954ee80a4fafca5ed16d58e09
   - enabled: 1
     path: Assets/Scenes/2. Types of Networks/2.0.unity
@@ -166,7 +154,7 @@ EditorBuildSettings:
     guid: 5e564c5c981cf4248a0c6975ed5bb894
   - enabled: 1
     path: Assets/Scenes/5. IP Addressing and Subnetting/E 5.1.unity
-    guid: 87511177dc18f734fbaab5695630858b
+    guid: c307ef56b87997c43a8400625bcd5227
   - enabled: 1
     path: Assets/Scenes/6. Protocols and Communication Standards/6.0.unity
     guid: 1ba829b4267bb6e43bfaad0f86a0766b
@@ -291,13 +279,13 @@ EditorBuildSettings:
     path: Assets/Scenes/7. Data Transmission Methods/E 7.5.unity
     guid: 36426d50b7f050c4eaf6a77f5c31b51e
   - enabled: 1
-    path: Assets/Scenes/Catalog/Network Devices/SwitchAR-1.unity
+    path: Assets/Scenes/Old/Network Devices/SwitchAR-1.unity
     guid: 86129164cb122bc458f2bec01e08cd02
   - enabled: 1
-    path: Assets/Scenes/Old Exercises/E 1.3_1.unity
+    path: Assets/Scenes/Old/E 1.3_1.unity
     guid: 3c28aa46b69cfdc4db8fedb946743257
   - enabled: 1
-    path: Assets/Scenes/Old Exercises/E 1.4_1.unity
+    path: Assets/Scenes/Old/E 1.4_1.unity
     guid: 62f8eedef2ff0204b817dd90032f0ff2
   - enabled: 1
     path: Assets/Scenes/1. Introduction to Networking/E 1.5.unity
@@ -323,6 +311,171 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/3. Networking Devices/E 3.5.unity
     guid: 5ba516c338282544a834cedb95f89514
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network-Devices/Network-Devices.unity
+    guid: 72762ce7631446241a4acc3bd83cfa51
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network-Devices/Bridge.unity
+    guid: 9ec7bbfbc1a8f30469433fdd974f7974
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network-Devices/BridgeAR.unity
+    guid: c7b8cff69c7287c4392b72e0f7a4bc30
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network-Devices/Hub.unity
+    guid: 54b6f99958c910b47986bf4ff4a15da4
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network-Devices/HubAR.unity
+    guid: 2c342f1658a9a5043a8d77b87d1933d0
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network-Devices/Modem.unity
+    guid: abb3c6631b984b044aeec94d4ff12471
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network-Devices/ModemAR.unity
+    guid: 2b8280b372423904e9e7dffac0ab9943
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network-Devices/NIC.unity
+    guid: ad7c4c1f5937c07488f474f44e343e08
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network-Devices/NicAR.unity
+    guid: e2588101cf5d20441869b130f82de94f
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network-Devices/Router.unity
+    guid: 6c03fb01afaa7ba4f897bacb15085954
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network-Devices/Switch.unity
+    guid: f9e0d9d66addcbd4792c974aee71a248
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network-Devices/SwitchAR.unity
+    guid: b60600f0b7e2d404da673cc05663e2f7
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Network-Devices/RouterAR.unity
+    guid: 9560f1331d552494c8b5a26fb9b56d70
+  - enabled: 1
+    path: Assets/Scenes/3. Networking Devices/E 3.2.unity
+    guid: 2a5a3a2db91d3684481fb8e091587e86
+  - enabled: 1
+    path: Assets/Scenes/4. Network Topologies/E 4.3.unity
+    guid: 9154f7823eaa15c4ab8921bbf9c7e974
+  - enabled: 1
+    path: Assets/Scenes/4. Network Topologies/E 4.2.unity
+    guid: 35eff0dc209ebb844acd6f9a14c9e6cf
+  - enabled: 1
+    path: Assets/Scenes/4. Network Topologies/E 4.4.unity
+    guid: 0e599922419da5b46896877feb0797e3
+  - enabled: 1
+    path: Assets/Scenes/4. Network Topologies/E 4.5.unity
+    guid: 592594fe9f9f06442a9ed0455b23d267
+  - enabled: 1
+    path: Assets/Scenes/5. IP Addressing and Subnetting/E 5.2.unity
+    guid: c179d1a6affbab446a434180229578dc
+  - enabled: 1
+    path: Assets/Scenes/5. IP Addressing and Subnetting/E 5.3.unity
+    guid: 575d796dec61d874f8cfd93dff1ec989
+  - enabled: 1
+    path: Assets/Scenes/5. IP Addressing and Subnetting/E 5.4.unity
+    guid: 53cfe40af7f2e9b498113f53aa7b66e3
+  - enabled: 1
+    path: Assets/Scenes/5. IP Addressing and Subnetting/E 5.5.unity
+    guid: b8df1584ea9883f41913d3b892fa5f87
+  - enabled: 1
+    path: Assets/Scenes/Catalog/End-Devices/End-Devices.unity
+    guid: 0c2a3acb08e3dd94dafc926ee8e2cbbd
+  - enabled: 1
+    path: Assets/Scenes/Catalog/End-Devices/Laptop.unity
+    guid: 88cab0aced888fb4f93d8699600f38bc
+  - enabled: 1
+    path: Assets/Scenes/Catalog/End-Devices/LaptopAR.unity
+    guid: 439468a2055b996479db44bceee58e75
+  - enabled: 1
+    path: Assets/Scenes/Catalog/End-Devices/Pc.unity
+    guid: 6d4304b62518b834fa30d4c93ce37b5c
+  - enabled: 1
+    path: Assets/Scenes/Catalog/End-Devices/PcAR.unity
+    guid: 9bb68e00e3d3000458a63a9bd5230a5b
+  - enabled: 1
+    path: Assets/Scenes/Catalog/End-Devices/PhoneAR.unity
+    guid: db48472fc02f58044b704d952f740a30
+  - enabled: 1
+    path: Assets/Scenes/Catalog/End-Devices/Server.unity
+    guid: 9806dae5620020549b2f1f0b7cc2e009
+  - enabled: 1
+    path: Assets/Scenes/Catalog/End-Devices/Smartphone.unity
+    guid: 957f816d76410224d9944d323a24bff5
+  - enabled: 1
+    path: Assets/Scenes/Catalog/End-Devices/Tablet.unity
+    guid: 97bd0aff4e0f35a4ba285d8a2b456322
+  - enabled: 1
+    path: Assets/Scenes/Catalog/End-Devices/TabletAR.unity
+    guid: 236989163d1f7da4890c12ffb3177256
+  - enabled: 1
+    path: Assets/Scenes/Catalog/End-Devices/ServerAR.unity
+    guid: 22e69bf17da4f1c4fa1a22e6341f5663
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Cable-connectors/Cables.unity
+    guid: 3e9aca970648297499c636be3f8cf838
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Cable-connectors/Coaxial.unity
+    guid: ea1276c5214353b4bb8e6e554db74567
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Cable-connectors/CoaxialAR.unity
+    guid: da2ad71f8221fc142bf8c56a281bfc5c
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Cable-connectors/Console.unity
+    guid: 10ac2797295f9534aa0e82418e9dd96d
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Cable-connectors/ConsoleAR.unity
+    guid: e58309d9a75de904288a668c089b692a
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Cable-connectors/Crossover.unity
+    guid: 68cc1b7e1b1226844bed1496bb16cef3
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Cable-connectors/CrossoverAR.unity
+    guid: 368e40fbef2ffbb44afcbe3a82538976
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Cable-connectors/Fiber.unity
+    guid: d61e1c505220e604590e72935f460421
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Cable-connectors/FiberAR.unity
+    guid: 29dc74aa75d76ae4f85647f223444a02
+  - enabled: 0
+    path: Assets/Scenes/Catalog/Cable-connectors/HubAR.unity
+    guid: 91e3dd1685183f146bc09a3074645073
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Cable-connectors/Straight.unity
+    guid: 6853f48ef5fb8694e8d0aba0e443dc4a
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Cable-connectors/StraightAR.unity
+    guid: 8f4134b53f3a58947b806e3d0cb577ca
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Equipment/Crimping.unity
+    guid: f67d1f1639c889d4782bf2cdf3f39a4e
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Equipment/CrimpingAR.unity
+    guid: 9aea60f5317ad604baa1ab92177a2077
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Equipment/Equipment.unity
+    guid: 036cb6fb01ed6d5469e56d289b3e1837
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Equipment/Rj45.unity
+    guid: 1504a727726ce1c40814a20210229501
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Equipment/Stripper.unity
+    guid: fab3d9232c16209459efe5afe7d3cb8d
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Equipment/StripperAR.unity
+    guid: a8ad8f838f9c91f41ab5586a4984c09f
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Equipment/Tester.unity
+    guid: 5553ce98554629a4899aa20689f1e281
+  - enabled: 1
+    path: Assets/Scenes/Catalog/Equipment/TesterAR.unity
+    guid: 65a511720566bdc4885bc9fe58ae567b
+  - enabled: 1
+    path: Assets/Scenes/6. Protocols and Communication Standards/E 6.2.unity
+    guid: 2a1f9b06ba4b9284b8b56de101552ad7
+  - enabled: 1
+    path: Assets/Scenes/6. Protocols and Communication Standards/E 6.3.unity
+    guid: b9e9dcfdf23643240aca977e3f5cf7dc
   m_configObjects:
     UnityEditor.XR.ARCore.ARCoreSettings: {fileID: 11400000, guid: 325820886b7993e4c8118e8c4d5639ea, type: 2}
     com.unity.adaptiveperformance.google.android.provider_settings: {fileID: 11400000, guid: d020a229620ce2e4e9e092a8d19e8181, type: 2}

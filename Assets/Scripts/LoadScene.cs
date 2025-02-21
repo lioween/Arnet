@@ -59,18 +59,26 @@ public class Loadscene : MonoBehaviour
         SceneManager.LoadScene(sceneName);
     }
 
-    public void GoBack()
+
+    public void GoBack(string fallbackScene)
     {
         if (sceneHistory.Count > 1)
         {
-            // Remove the current scene from history and go back to the previous one
+            // Remove the current scene from history
             sceneHistory.RemoveAt(sceneHistory.Count - 1);
             string lastScene = sceneHistory[sceneHistory.Count - 1];
 
-            Debug.Log($"[Scene Tracker] Going Back to: {lastScene}");
-            LogSceneHistory();
-
-            SceneManager.LoadScene(lastScene);
+            if (lastScene == "Bookmarks" || lastScene == "Exercises")
+            {
+                Debug.Log($"[Scene Tracker] Going Back to: {lastScene}");
+                LogSceneHistory();
+                SceneManager.LoadScene(lastScene);
+            }
+            else
+            {
+                Debug.LogWarning($"[Scene Tracker] Last scene was '{lastScene}'. Redirecting to fallback scene: {fallbackScene}");
+                SceneManager.LoadScene(fallbackScene); // Use the fallback scene from Inspector
+            }
         }
         else
         {

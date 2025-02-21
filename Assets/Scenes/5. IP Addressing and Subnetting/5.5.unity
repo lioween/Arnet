@@ -228,6 +228,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 2018161446}
+        m_TargetAssemblyTypeName: VideoLink, Assembly-CSharp
+        m_MethodName: StopVideo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &33515177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -793,7 +805,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 359.45374, y: -4006.2854}
+  m_AnchoredPosition: {x: 359.45374, y: -4031.2454}
   m_SizeDelta: {x: 718.9075, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &436870441
@@ -816,43 +828,43 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<align=center><b>Advanced Subnetting and Troubleshooting</b></align>\r\n\n<b>Objective:</b>\r\nBy
+  m_text: "<align=center><b>Advanced Subnetting and Troubleshooting</b></align>\r\n\r\n<b>Objective:</b>\r\nBy
     the end of this lesson, you will:\r\nUnderstand <b>Advanced Subnetting Techniques</b>,
     including <b>VLSM</b> and <b>Supernetting.</b>\r\nLearn how to troubleshoot common
     <b>subnetting errors</b> and misconfigurations.\r\nApply subnetting to <b>real-world
-    scenarios</b>, such as large networks and remote office configurations.\n\r\n<align=center><b>VLSM
-    (Variable Length Subnet Masking)</b></align>\r\n\n<b>VLSM</b> allows the use
+    scenarios</b>, such as large networks and remote office configurations.\r\n\r\n<align=center><b>VLSM
+    (Variable Length Subnet Masking)</b></align>\r\n\r\n<b>VLSM</b> allows the use
     of <b>different subnet masks</b> within the same network, providing more flexibility
     and efficient use of IP addresses. With VLSM, you can assign subnets of varying
-    sizes, depending on the number of hosts needed for each subnet.\r\n\n<b>How VLSM
-    Works:</b>\r\n<b>Start with a base network</b> (e.g., 192.168.1.0/24).\r\n<b>Determine
+    sizes, depending on the number of hosts needed for each subnet.\r\n\r\n<b>How
+    VLSM Works:</b>\r\n<b>Start with a base network</b> (e.g., 192.168.1.0/24).\r\n<b>Determine
     the requirements</b> for each subnet (e.g., 50 hosts, 100 hosts, 10 hosts).\r\n<b>Subnet
     the network</b> based on the largest subnet size first.\r\n<b>Continue to subnet</b>
     for smaller subnets, choosing the appropriate subnet mask for each.\r\n<b>Allocate
-    subnets</b> and ensure there are no IP address overlaps.\r\n\n<b>Example:</b>\r\nStarting
+    subnets</b> and ensure there are no IP address overlaps.\r\n\r\n<b>Example:</b>\r\nStarting
     with 192.168.1.0/24:\r\n<b>Subnet 1</b> requires 100 hosts, so use a /25 subnet
     mask (128 addresses, 126 usable).\r\n<b>Subnet 2</b> requires 50 hosts, so use
     a /26 subnet mask (64 addresses, 62 usable).\r\n<b>Subnet 3</b> requires 10 hosts,
     so use a /28 subnet mask (16 addresses, 14 usable).\r\n<b>Subnet 4</b> requires
-    5 hosts, so use a /29 subnet mask (8 addresses, 6 usable).\r\n\r\n<align=center><b>Supernetting</b>\r</align>\n\n<b>Supernetting</b>
+    5 hosts, so use a /29 subnet mask (8 addresses, 6 usable).\r\n\r\n<align=center><b>Supernetting</b>\r\n</align>\r\n\r\n<b>Supernetting</b>
     is the opposite of subnetting. It involves <b>combining multiple smaller networks</b>
     (subnets) into a larger network to conserve IP addresses. Supernetting allows
-    you to represent multiple subnets with a single, larger subnet mask.\r\n\n<align=center><b>How
+    you to represent multiple subnets with a single, larger subnet mask.\r\n\r\n<align=center><b>How
     Supernetting Works:</b></align>\r\nTo supernet, you <b>combine multiple subnets</b>
     that share the same network portion.\r\nYou <b>reduce the subnet mask length</b>,
-    essentially <b>combining multiple subnets</b> into one.\r\n\n<b>Example:</b>\r\nGiven
-    two subnets:\r\n192.168.1.0/24\r\n192.168.2.0/24\r\n\nTo supernet these two subnets
-    into a <b>larger network:</b>\r\n<b>Supernet Mask</b>: 255.255.254.0 (or /23
-    CIDR)\r\n<b>Supernet Address:</b> 192.168.0.0/23\r\nThis supernet will cover
-    both 192.168.1.0/24 and 192.168.2.0/24.\r\nThe resulting range of IP addresses
-    would be from 192.168.0.0 to 192.168.1.255, allowing for a total of 512 addresses.\r\n\n<align=center><b>Common
-    Subnetting Mistakes</b></align>\r\n\nCommon subnetting mistakes can lead to <b>misconfigured
-    networks</b>, causing issues such as <b>IP address conflicts</b> or <b>inability
-    to communicate</b> across subnets. Let\u2019s review some of these mistakes and
-    how to troubleshoot them:\r\n\n<b>Common Mistakes:</b>\r\n<b>Incorrect Subnet
-    Mask:</b>\r\nIncorrect subnet masks can misplace the network and host portions
-    of an IP address, causing routing problems.\r\n<b>Fix</b>: Always verify the
-    subnet mask and ensure it's correct for the required subnet size.\r\n<b>Wrong
+    essentially <b>combining multiple subnets</b> into one.\r\n\r\n<b>Example:</b>\r\nGiven
+    two subnets:\r\n192.168.1.0/24\r\n192.168.2.0/24\r\n\r\nTo supernet these two
+    subnets into a <b>larger network:</b>\r\n<b>Supernet Mask</b>: 255.255.254.0
+    (or /23 CIDR)\r\n<b>Supernet Address:</b> 192.168.0.0/23\r\nThis supernet will
+    cover both 192.168.1.0/24 and 192.168.2.0/24.\r\nThe resulting range of IP addresses
+    would be from 192.168.0.0 to 192.168.1.255, allowing for a total of 512 addresses.\r\n\r\n<align=center><b>Common
+    Subnetting Mistakes</b></align>\r\n\r\nCommon subnetting mistakes can lead to
+    <b>misconfigured networks</b>, causing issues such as <b>IP address conflicts</b>
+    or <b>inability to communicate</b> across subnets. Let\u2019s review some of
+    these mistakes and how to troubleshoot them:\r\n\r\n<b>Common Mistakes:</b>\r\n<b>Incorrect
+    Subnet Mask:</b>\r\nIncorrect subnet masks can misplace the network and host
+    portions of an IP address, causing routing problems.\r\n<b>Fix</b>: Always verify
+    the subnet mask and ensure it's correct for the required subnet size.\r\n<b>Wrong
     Number of Hosts:</b>\r\nSometimes, the wrong number of usable hosts is assigned
     to a subnet.\r\n<b>Fix</b>: Ensure that the number of hosts per subnet is calculated
     correctly, accounting for network and broadcast addresses.\r\n<b>Subnet Overlaps:</b>\r\nAssigning
@@ -862,22 +874,22 @@ MonoBehaviour:
     subnet can lead to broadcast storms or unreachable hosts.\r\n<b>Fix</b>: Double-check
     that the network address and broadcast address are correctly calculated and that
     they are used for network management purposes.\r\n\r\n<align=center><b>Subnetting
-    Practice: Real-World Scenarios</b></align>\r\n\nNow let's apply what we've learned
-    to some real-world scenarios. In these situations, we'll solve subnetting problems
-    for <b>large networks</b> and <b>remote offices.</b>\r\n<align=center><b>Scenario
+    Practice: Real-World Scenarios</b></align>\r\n\r\nNow let's apply what we've
+    learned to some real-world scenarios. In these situations, we'll solve subnetting
+    problems for <b>large networks</b> and <b>remote offices.</b>\r\n<align=center><b>Scenario
     1: Large Corporate Network</b></align>\r\n\r\nYou are given the following network:\r\n<b>Network</b>:
     10.0.0.0/8\r\n<b>Subnet Mask</b> 255.255.255.0\r\nYou need to divide the network
     into 5 subnets, with the following number of hosts:\r\nSubnet 1: 200 hosts\r\nSubnet
     2: 150 hosts\r\nSubnet 3: 50 hosts\r\nSubnet 4: 25 hosts\r\nSubnet 5: 10 hosts\r\nSteps:\r\n<b>Find
     the required subnet mask</b> for each subnet.\r\n<b>Allocate the subnets</b>
     in order of size, starting with the largest subnet.\r\n<b>Check for IP address
-    overlap</b> and ensure each subnet is correctly addressed.\r\n\n<align=center><b>Scenario
-    2: Remote Office Network</b></align>\r\n\nYou have the following network:\r\n<b>Network:</b>
+    overlap</b> and ensure each subnet is correctly addressed.\r\n\r\n<align=center><b>Scenario
+    2: Remote Office Network</b></align>\r\n\r\nYou have the following network:\r\n<b>Network:</b>
     192.168.10.0/24\r\nYou need to subnet this network for 3 remote office locations
     with the following requirements:\r\nOffice 1: 50 devices\r\nOffice 2: 20 devices\r\nOffice
-    3: 10 devices\r\n\nSteps:\r\n<b>Calculate the required subnet size</b> for each
-    office.\r\n<b>Subnet</b> the 192.168.10.0/24 network to create 3 smaller subnets.\r\n<b>Assign
-    IP address ranges</b> and determine the valid host addresses.\r"
+    3: 10 devices\r\n\r\nSteps:\r\n<b>Calculate the required subnet size</b> for
+    each office.\r\n<b>Subnet</b> the 192.168.10.0/24 network to create 3 smaller
+    subnets.\r\n<b>Assign IP address ranges</b> and determine the valid host addresses.\r"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d616741d7ff066a499eb3d6db5d77dcc, type: 2}
   m_sharedMaterial: {fileID: -2352361283333279779, guid: d616741d7ff066a499eb3d6db5d77dcc, type: 2}
@@ -1801,7 +1813,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 937233534}
         m_TargetAssemblyTypeName: TTSManager, Assembly-CSharp
         m_MethodName: StopSpeaking
         m_Mode: 1
@@ -1822,7 +1834,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: E 1.1
+          m_StringArgument: E 5.5
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &827473742
@@ -4313,18 +4325,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5513341773210212363, guid: 129475b6332ec524e83d9d073efb7df3, type: 3}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_TargetAssemblyTypeName: Loadscene, Assembly-CSharp
         m_MethodName: GoBack
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 2.0
+          m_StringArgument: 5.0
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 937233534}
         m_TargetAssemblyTypeName: TTSManager, Assembly-CSharp
         m_MethodName: StopSpeaking
         m_Mode: 1
@@ -4480,7 +4492,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   panel: {fileID: 856376850}
   scrollView: {fileID: 2102669916}
-  videoURL: 
+  videoURL: https://www.youtube.com/embed/TL7VoGVHYME?si=7IXFRsM12zyBAL-5
 --- !u!4 &2018161447
 Transform:
   m_ObjectHideFlags: 0

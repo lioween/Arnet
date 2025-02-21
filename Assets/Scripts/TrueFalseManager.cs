@@ -17,7 +17,6 @@ public class TrueFalseManager : MonoBehaviour
     public Button nextQuestionButton;
     public TMP_Text nextButtonText;
 
-    public GameObject questionPanel;
     public TMP_Text questionText;
     public TMP_Text txtnumber;  // Displays the current question number
     public TMP_Text txtFalse;   // Displays correct statement if answer is false
@@ -33,7 +32,6 @@ public class TrueFalseManager : MonoBehaviour
     public GameObject pnlFailed;
     public TMP_Text scorePassed;
     public TMP_Text scoreFailed;
-    public TMP_Text txtTitle;
     public GameObject pnlStart;
     public GameObject loadingUI;
 
@@ -268,9 +266,6 @@ public class TrueFalseManager : MonoBehaviour
         {
             optionButtons[selectedAnswerIndex].GetComponent<Image>().color = wrongColor;
 
-            // Highlight the correct button
-            optionButtons[currentQuestions[currentQuestionIndex].correctAnswerIndex]
-                .GetComponent<Image>().color = correctColor;
 
             // Display correct statement if answer is false
             if (currentQuestions[currentQuestionIndex].correctAnswerIndex == 1) // False is the correct answer

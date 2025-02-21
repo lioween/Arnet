@@ -228,6 +228,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 285670867}
+        m_TargetAssemblyTypeName: VideoLink, Assembly-CSharp
+        m_MethodName: StopVideo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &33515177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -716,7 +728,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 359.45374, y: -3032.8455}
+  m_AnchoredPosition: {x: 359.45374, y: -3132.6853}
   m_SizeDelta: {x: 718.9075, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &436870441
@@ -739,51 +751,52 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "\r<align=center><b>How to Subnet an IP Address</b></align>\r\n\nSubnetting
+  m_text: "\r\n<align=center><b>How to Subnet an IP Address</b></align>\r\n\r\nSubnetting
     involves dividing a network into smaller sub-networks (subnets). The basic idea
     is to borrow bits from the host portion of an IP address to create additional
-    subnets.\n\r\n<align=center><b>Step-by-Step Guide:</b></align>\r\nLet's go through
-    an example of subnetting an IP address using the subnet mask 255.255.255.0 (often
-    used for small networks).\r\n\n<b>Identify the IP Address and Subnet Mask:</b>\r\n<b>IP
-    Address:</b> 192.168.1.100\r\n<b>Subnet Mask:</b> 255.255.255.0\r\n<b>Convert
-    the Subnet Mask to Binary:</b>\r\nThe subnet mask 255.255.255.0 in binary is:\r\n11111111.11111111.11111111.00000000\r\n\nThe
+    subnets.\r\n\r\n<align=center><b>Step-by-Step Guide:</b></align>\r\nLet's go
+    through an example of subnetting an IP address using the subnet mask 255.255.255.0
+    (often used for small networks).\r\n\r\n<b>Identify the IP Address and Subnet
+    Mask:</b>\r\n<b>IP Address:</b> 192.168.1.100\r\n<b>Subnet Mask:</b> 255.255.255.0\r\n<b>Convert
+    the Subnet Mask to Binary:</b>\r\nThe subnet mask 255.255.255.0 in binary is:\r\n11111111.11111111.11111111.00000000\r\n\r\nThe
     <b>1s</b> in the subnet mask represent the <b>network portion</b> of the IP address,
     and the <b>0s</b> represent the <b>host portion.</b>\r\n<b>Determine the Network
     Portion and Host Portion:</b>\r\n<b>Network Portion:</b> The first 24 bits (represented
-    by the 1s in the subnet mask) make up the <b>network portion</b> of the IP address.\r\n\n<b>Host
+    by the 1s in the subnet mask) make up the <b>network portion</b> of the IP address.\r\n\r\n<b>Host
     Portion</b>: The last 8 bits (represented by the 0s) are used for host addresses
     within the subnet.\r\n<b>Subnet the Network:</b>\r\nTo create additional subnets,
-    we borrow bits from the <b>host portion</b> and turn them into <b>network bits.</b>\r\n\nFor
+    we borrow bits from the <b>host portion</b> and turn them into <b>network bits.</b>\r\n\r\nFor
     example, if we borrow 2 bits from the host portion, we will have:\r\n<b>New subnet
-    mask:</b> 255.255.255.192 (11111111.11111111.11111111.11000000 in binary).\r\n\n<align=center<b>Determining
+    mask:</b> 255.255.255.192 (11111111.11111111.11111111.11000000 in binary).\r\n\r\n<align=center<b>Determining
     Subnet Masks</b></align>\r\nA <b>subnet mask</b> defines the division between
     the network and host portions of an IP address. To calculate the number of <b>subnets</b>
     you can create, you must look at how many bits you've borrowed from the host
-    portion.\r\n\n<b>Steps:</b>\r\n<b>Determine the number of borrowed bits:</b>\r\n\nExample:
+    portion.\r\n\r\n<b>Steps:</b>\r\n<b>Determine the number of borrowed bits:</b>\r\n\r\nExample:
     If you borrow <b>2 bits</b> from the host portion, you can create <b>4 subnets</b>
     (2^2 = 4).\r\n<b>Calculate the subnet mask:</b>\r\nIf you borrow 2 bits, the
     subnet mask will change to 255.255.255.192 (or /26 in CIDR notation). The binary
-    representation would be 11111111.11111111.11111111.11000000.\r\n\n<b>Calculate
+    representation would be 11111111.11111111.11111111.11000000.\r\n\r\n<b>Calculate
     the number of subnets:</b>\r\nWith<b> 2 borrowed bits</b>, you can have 4 subnets
-    (2^2 = \n4).\r <b>Calculate the number of usable host addresses per subnet:</b>\r\n\nThe
+    (2^2 = \r\n4).\r\n <b>Calculate the number of usable host addresses per subnet:</b>\r\n\r\nThe
     remaining bits are used for hosts. For a /26 subnet mask, you have <b>6 bits
     for hosts</b> (32 - 26 = 6).\r\nThe number of usable IP addresses is <b>2^6 -
     2 = 62</b> (subtract 2 for the network address and broadcast address).\r\n<b>Calculating
     Usable IP Address Ranges</b>\r\nOnce you've calculated the <b>subnet mask</b>
     and the number of <b>subnets</b>, you can calculate the <b>IP address ranges</b>
-    for each subnet.\r\n\n<b>Example Calculation:</b>\r\nUsing the subnet mask 255.255.255.192
-    (or /26):\r\n<b>Network Address:</b> The first address in the range (e.g., 192.168.1.0).\r\n<b>Broadcast
-    Address</b>: The last address in the range (e.g., 192.168.1.63).\r\nThe <b>valid
-    host IP range</b> will be from 192.168.1.1 to 192.168.1.62 (the network and broadcast
-    addresses cannot be assigned to devices).\r\n<b>Subnet Ranges:</b>\r\n<b>Subnet
-    1:</b> 192.168.1.0 to 192.168.1.63 (Network: 192.168.1.0, Broadcast: 192.168.1.63)\r\n<b>Subnet
-    2:</b> 192.168.1.64 to 192.168.1.127 (Network: 192.168.1.64, Broadcast: 192.168.1.127)\r\n<b>Subnet
-    3:</b> 192.168.1.128 to 192.168.1.191 (Network: 192.168.1.128, Broadcast: 192.168.1.191)\r\n<b>Subnet
-    4:</b> 192.168.1.192 to 192.168.1.255 (Network: 192.168.1.192, Broadcast: 192.168.1.255)\r\n\n<align=center></<b>CIDR
+    for each subnet.\r\n\r\n<b>Example Calculation:</b>\r\nUsing the subnet mask
+    255.255.255.192 (or /26):\r\n<b>Network Address:</b> The first address in the
+    range (e.g., 192.168.1.0).\r\n<b>Broadcast Address</b>: The last address in the
+    range (e.g., 192.168.1.63).\r\nThe <b>valid host IP range</b> will be from 192.168.1.1
+    to 192.168.1.62 (the network and broadcast addresses cannot be assigned to devices).\r\n<b>Subnet
+    Ranges:</b>\r\n<b>Subnet 1:</b> 192.168.1.0 to 192.168.1.63 (Network: 192.168.1.0,
+    Broadcast: 192.168.1.63)\r\n<b>Subnet 2:</b> 192.168.1.64 to 192.168.1.127 (Network:
+    192.168.1.64, Broadcast: 192.168.1.127)\r\n<b>Subnet 3:</b> 192.168.1.128 to
+    192.168.1.191 (Network: 192.168.1.128, Broadcast: 192.168.1.191)\r\n<b>Subnet
+    4:</b> 192.168.1.192 to 192.168.1.255 (Network: 192.168.1.192, Broadcast: 192.168.1.255)\r\n\r\n<align=center></<b>CIDR
     Notation</b></align>\r\n<b>CIDR (Classless Inter-Domain Routing)</b> notation
-    simplifies the representation of subnet masks and IP ranges.\n\nIt\u2019s written
-    as:\r <b>mathematica\r</b>\nIP Address / Subnet Prefix Length\r\n<b>Example</b>:
-    192.168.1.0/24\r\n\nThe /24 indicates that the first 24 bits are used for the
+    simplifies the representation of subnet masks and IP ranges.\r\n\r\nIt\u2019s
+    written as:\r\n <b>mathematica\r\n</b>\r\nIP Address / Subnet Prefix Length\r\n<b>Example</b>:
+    192.168.1.0/24\r\n\r\nThe /24 indicates that the first 24 bits are used for the
     network portion, leaving 8 bits for the host portion.\r\nCIDR notation eliminates
     the need for dotted decimal notation, and it is more flexible for creating subnets
     without being restricted by classful boundaries.\r"
@@ -1764,7 +1777,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 937233534}
         m_TargetAssemblyTypeName: TTSManager, Assembly-CSharp
         m_MethodName: StopSpeaking
         m_Mode: 1
@@ -1785,7 +1798,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: E 1.1
+          m_StringArgument: E 5.4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &827473742
@@ -4279,18 +4292,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5513341773210212363, guid: 129475b6332ec524e83d9d073efb7df3, type: 3}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_TargetAssemblyTypeName: Loadscene, Assembly-CSharp
         m_MethodName: GoBack
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 2.0
+          m_StringArgument: 5.0
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 937233534}
         m_TargetAssemblyTypeName: TTSManager, Assembly-CSharp
         m_MethodName: StopSpeaking
         m_Mode: 1

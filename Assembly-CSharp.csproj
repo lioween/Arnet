@@ -64,6 +64,7 @@
     <Compile Include="Assets\Scripts\BadgeLoader.cs" />
     <Compile Include="Assets\Scripts\ImageHelper.cs" />
     <Compile Include="Assets\Scripts\CheckCurrentUser.cs" />
+    <Compile Include="Assets\Scripts\PersistentARCamera.cs" />
     <Compile Include="Assets\Scenes\Simulation\CMDInterface.cs" />
     <Compile Include="Assets\Scripts\ProgressManager.cs" />
     <Compile Include="Assets\Scripts\E 2.5.cs" />
@@ -81,6 +82,7 @@
     <Compile Include="Assets\Scenes\Simulation\NetworkManager.cs" />
     <Compile Include="Assets\Scenes\Simulation\MessageSender.cs" />
     <Compile Include="Assets\GoogleSignIn\Future.cs" />
+    <Compile Include="Assets\Scripts\ArrangeQuiz.cs" />
     <Compile Include="Assets\Scripts\E 2.2.cs" />
     <Compile Include="Assets\Scripts\E 1.4 Manager.cs" />
     <Compile Include="Assets\Scripts\ToggleObject.cs" />

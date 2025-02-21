@@ -22,6 +22,7 @@ public class ImageQuizManager : MonoBehaviour
     private int currentQuestionIndex = 0;
     private int score = 0;
     private int selectedAnswerIndex = -1;
+    public string folderName;
 
     public Image questionImage; // UI Image to display the question image
     public TMP_Text txtName; // Displays the custom image name
@@ -202,7 +203,7 @@ public class ImageQuizManager : MonoBehaviour
         txtName.text = currentQuestion.customImageName;
 
         // Load Image from Resources
-        Sprite loadedImage = Resources.Load<Sprite>($"1.2/{currentQuestion.imageFileName}");
+        Sprite loadedImage = Resources.Load<Sprite>($"{folderName}/{currentQuestion.imageFileName}");
         if (loadedImage != null)
         {
             questionImage.sprite = loadedImage;
@@ -375,16 +376,6 @@ public class ImageQuizManager : MonoBehaviour
         {
             option1Button.GetComponent<Image>().color = selectedAnswerIndex == 0 ? wrongColor : originalButtonColors[0];
             option2Button.GetComponent<Image>().color = selectedAnswerIndex == 1 ? wrongColor : originalButtonColors[1];
-
-            // Highlight the correct button
-            if (quizItems[currentQuestionIndex].correctAnswerIndex == 0)
-            {
-                option1Button.GetComponent<Image>().color = correctColor;
-            }
-            else
-            {
-                option2Button.GetComponent<Image>().color = correctColor;
-            }
 
             Debug.Log($"Wrong! Current Score: {score}");
         }

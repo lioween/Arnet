@@ -228,6 +228,18 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+      - m_Target: {fileID: 1409734245}
+        m_TargetAssemblyTypeName: VideoLink, Assembly-CSharp
+        m_MethodName: StopVideo
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &33515177
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -799,7 +811,7 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 303912578}
   m_CullTransparentMesh: 1
---- !u!1 &407859424
+--- !u!1 &332132552
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -807,91 +819,24 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 407859426}
-  - component: {fileID: 407859425}
-  m_Layer: 0
-  m_Name: SearchText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &407859425
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407859424}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6606799a20828dd468262dda74cf27cf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  textComponents:
-  - {fileID: 436870441}
-  searchField: {fileID: 1779055314}
-  btnSearch: {fileID: 1120528502}
---- !u!4 &407859426
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 407859424}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 339.65567, y: 1820.7325, z: 31.000193}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &436870439
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 436870440}
-  - component: {fileID: 436870442}
-  - component: {fileID: 436870441}
-  - component: {fileID: 436870443}
+  - component: {fileID: 332132556}
+  - component: {fileID: 332132555}
+  - component: {fileID: 332132553}
+  - component: {fileID: 332132554}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Text1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &436870440
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 436870439}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1454654819}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 1}
-  m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 359.45374, y: -3232.5254}
-  m_SizeDelta: {x: 718.9075, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &436870441
+--- !u!114 &332132553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 436870439}
+  m_GameObject: {fileID: 332132552}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
@@ -905,12 +850,12 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "<align=center>Structure and Format of IP Addresses</align>\r\n\nObjective:\r\nBy
+  m_text: "<align=center>Structure and Format of IP Addresses</align>\r\n\r\nObjective:\r\nBy
     the end of this lesson, you will:\r\n1. Understand the structure and format of
     IPv4 and IPv6 addresses.\r\n2. Learn how to identify the network and host parts
     of an IP address.\r\n3. Distinguish between private and public IP addresses.\r\n4.Participate
     in an interactive activity to break down an IP address into its network and host
-    parts.\r\n\r\n<align=center><b>IPv4 Address Structure\r</b></align>\r\n\nIPv4
+    parts.\r\n\r\n<align=center><b>IPv4 Address Structure\r\n</b></align>\r\n\r\nIPv4
     addresses are composed of 32 bits, divided into four octets. These are written
     in dotted-decimal notation, where each octet is represented by a number ranging
     from 0 to 255 (8 bits = 1 byte).\r\n\u2022 <b>Example</b>: 192.168.1.1\r\n<b>Components
@@ -918,44 +863,44 @@ MonoBehaviour:
     numbers separated by dots.\r\no Each number represents <b>8 bits</b> of data
     (1 byte), resulting in 32 bits total.\r\no Example breakdown:\r\n192.168.1.1\r\n\uF0A7192
     = 11000000 (binary)\r\n\uF0A7168 = 10101000 (binary)\r\n\uF0A71 = 00000001 (binary)\r\n\uF0A71
-    = 00000001 (binary)\r\n\n<align=center>IPv4 Format:\r </align>\r\n\n[8 bits]
-    [8 bits] [8 bits] [8 bits]\r\n     |           |            |               
+    = 00000001 (binary)\r\n\r\n<align=center>IPv4 Format:\r\n </align>\r\n\r\n[8
+    bits] [8 bits] [8 bits] [8 bits]\r\n     |           |            |               
     |\r\nNetwork Portion | Host Portion\r\n\r\n\u2022 <b>Network Portion </b>: Identifies
     the specific network the device is part of.\r\n\u2022 <b> Host Portion </b>:
     Identifies the specific device (or host) within that network.\r\n\r\n<align=center><b>
-    Subnet Mask: </b>\r</align>\nThe subnet mask determines the <b> boundary </b>
-    between the network portion and the host portion of an IPv4 address.\r\n\u2022<b>
+    Subnet Mask: </b>\r\n</align>\r\nThe subnet mask determines the <b> boundary
+    </b> between the network portion and the host portion of an IPv4 address.\r\n\u2022<b>
     Example: </b>\r\n255.255.255.0 - Network portion: First 3 octets; Host portion:
-    Last octet.\r\n\n<align=center><b> IPv6 Address Structure </b>\r</align>\nIPv6
+    Last octet.\r\n\r\n<align=center><b> IPv6 Address Structure </b>\r\n</align>\r\nIPv6
     addresses are composed of <b> 128 bits</b>, written in <b> hexadecimal notation</b>
     (using base 16). An IPv6 address is made up of <b> 8 groups of 4 hexadecimal
     digits</b>\r\nseparated by colons (:).\r\n\u2022 Example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334\r\nComponents
     of an IPv6 Address:\r\n\u2022 Hexadecimal Notation: Each group contains 4 hexadecimal
     digits (16 bits).\r\n\u2022 128-bit total: 8 groups \xD7 16 bits per group =
-    128 bits.\r\n\n<align=center>IPv6 Format:\r</align>\n\n[16 bits] [16 bits] [16
-    bits] [16 bits] [16 bits] [16 bits] [16 bits] [16 bits]\r\n    |         |        
-    |         |         |         |         |         |\r\n  Network Portion                                   
+    128 bits.\r\n\r\n<align=center>IPv6 Format:\r\n</align>\r\n\r\n[16 bits] [16
+    bits] [16 bits] [16 bits] [16 bits] [16 bits] [16 bits] [16 bits]\r\n    |        
+    |         |         |         |         |         |         |\r\n  Network Portion                                   
     Host Portion\r\n\r\n\r\n\u2022 Network Portion: Identifies the network the device
     belongs to.\r\n\u2022 Host Portion: Identifies the device within that network.\r\nCompression
     and Simplification:\r\nIPv6 addresses often use zero compression to make the
-    addresses more concise:\r\n\u2022 Example:\r 2001:0db8:85a3::8a2e:0370:7334\r\no
-    The double colon (::) indicates one or more consecutive blocks of zeroes.\r\n\n<align=center><b>Understanding
-    the Network and Host Parts\r</b></align>\n\n\u2022 In IPv4 and IPv6, each address
-    is divided into two sections: the network part and the host part.\r\no The network
-    part identifies the network to which the device belongs (e.g., the company\u2019s
-    local network).\r\no The <b>host part </b>identifies the specific device (e.g.,
+    addresses more concise:\r\n\u2022 Example:\r\n 2001:0db8:85a3::8a2e:0370:7334\r\nThe
+    double colon (::) indicates one or more consecutive blocks of zeroes.\r\n\r\n<align=center><b>Understanding
+    the Network and Host Parts\r\n</b></align>\r\n\r\n\u2022 In IPv4 and IPv6, each
+    address is divided into two sections: the network part and the host part.\r\nThe
+    network part identifies the network to which the device belongs (e.g., the company\u2019s
+    local network).\r\nThe <b>host part </b>identifies the specific device (e.g.,
     the computer or printer on that network).\r\nExample (IPv4):\r\n\u2022<b> IP
     Address</b>: 192.168.1.1\r\n\u2022<b> Network Portion </b>: 192.168.1\r\n\u2022<b>
     Host Portion </b>: 1\r\nExample (IPv6):\r\n\u2022 IP Address: 2001:0db8:85a3::8a2e:0370:7334\r\n\u2022
-    Network Portion: 2001:0db8:85a3::\r\n\u2022 Host Portion: 8a2e:0370:7334\r\n\n<align=center>Private
-    vs. Public IP Addresses\r</align>\nPrivate IP Addresses are used within private
+    Network Portion: 2001:0db8:85a3::\r\n\u2022 Host Portion: 8a2e:0370:7334\r\n\r\n<align=center>Private
+    vs. Public IP Addresses\r\n</align>\r\nPrivate IP Addresses are used within private
     networks (e.g., home networks, corporate networks). They are not routable on
     the public internet. These addresses are reserved by the IETF for use in private
-    environments.\r\n\u2022 Private IPv4 Address Ranges:\r\no Class A: 10.0.0.0 to
-    10.255.255.255\r\no Class B: 172.16.0.0 to 172.31.255.255\r\no Class C: 192.168.0.0
-    to 192.168.255.255\r\n\nPublic IP Addresses are routable on the internet and
+    environments.\r\n\u2022 Private IPv4 Address Ranges:\r\nClass A: 10.0.0.0 to
+    10.255.255.255\r\nClass B: 172.16.0.0 to 172.31.255.255\r\nClass C: 192.168.0.0
+    to 192.168.255.255\r\n\r\nPublic IP Addresses are routable on the internet and
     are assigned by Internet Service Providers (ISPs). These addresses are globally
-    unique.\r\n\u2022Example: 8.8.8.8 (Public IP address of Google DNS)\r\n"
+    unique.\r\n\u2022Example: 8.8.8.8 (Public IP address of Google DNS) \r\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: d616741d7ff066a499eb3d6db5d77dcc, type: 2}
   m_sharedMaterial: {fileID: -2352361283333279779, guid: d616741d7ff066a499eb3d6db5d77dcc, type: 2}
@@ -1024,21 +969,13 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!222 &436870442
-CanvasRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 436870439}
-  m_CullTransparentMesh: 1
---- !u!114 &436870443
+--- !u!114 &332132554
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 436870439}
+  m_GameObject: {fileID: 332132552}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3245ec927659c4140ac4f8d17403cc18, type: 3}
@@ -1046,6 +983,81 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_HorizontalFit: 0
   m_VerticalFit: 2
+--- !u!222 &332132555
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332132552}
+  m_CullTransparentMesh: 1
+--- !u!224 &332132556
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 332132552}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1454654819}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 359.45374, y: -3432.2053}
+  m_SizeDelta: {x: 718.9075, y: 0}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &407859424
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 407859426}
+  - component: {fileID: 407859425}
+  m_Layer: 0
+  m_Name: SearchText
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &407859425
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407859424}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6606799a20828dd468262dda74cf27cf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponents:
+  - {fileID: 332132553}
+  searchField: {fileID: 1779055314}
+  btnSearch: {fileID: 1120528502}
+--- !u!4 &407859426
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 407859424}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 339.65567, y: 1820.7325, z: 31.000193}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &457875835
 GameObject:
   m_ObjectHideFlags: 0
@@ -1808,7 +1820,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 937233534}
         m_TargetAssemblyTypeName: TTSManager, Assembly-CSharp
         m_MethodName: StopSpeaking
         m_Mode: 1
@@ -1829,7 +1841,7 @@ MonoBehaviour:
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: E 1.1
+          m_StringArgument: E 5.2
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &827473742
@@ -1948,7 +1960,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   txtTitle: {fileID: 288609990}
-  txtText: {fileID: 436870441}
+  txtText: {fileID: 332132553}
   txtExtra1: {fileID: 0}
   txtExtra2: {fileID: 0}
   txtExtra3: {fileID: 0}
@@ -2617,7 +2629,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fontSizeSlider: {fileID: 1724467199}
   texts:
-  - {fileID: 436870441}
+  - {fileID: 332132553}
   minFontSize: 30
   maxFontSize: 50
 --- !u!4 &1266439244
@@ -3071,7 +3083,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 1010372344}
-  - {fileID: 436870440}
+  - {fileID: 332132556}
   - {fileID: 827473740}
   m_Father: {fileID: 2059307151}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4080,18 +4092,18 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5513341773210212363, guid: 129475b6332ec524e83d9d073efb7df3, type: 3}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_TargetAssemblyTypeName: Loadscene, Assembly-CSharp
         m_MethodName: GoBack
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 2.0
+          m_StringArgument: 5.0
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 937233534}
         m_TargetAssemblyTypeName: TTSManager, Assembly-CSharp
         m_MethodName: StopSpeaking
         m_Mode: 1

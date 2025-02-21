@@ -1379,7 +1379,6 @@ MonoBehaviour:
     correctStatement: 
   nextQuestionButton: {fileID: 273877641}
   nextButtonText: {fileID: 1007622042}
-  questionPanel: {fileID: 0}
   questionText: {fileID: 151436848}
   txtnumber: {fileID: 1841827716}
   txtFalse: {fileID: 592171268}
@@ -1394,12 +1393,12 @@ MonoBehaviour:
   pnlFailed: {fileID: 1152955460}
   scorePassed: {fileID: 542655950}
   scoreFailed: {fileID: 1318242026}
-  txtTitle: {fileID: 1807584015}
   pnlStart: {fileID: 943833684}
   loadingUI: {fileID: 1312262201}
   firestoreCollectionName: 1.0
   firestoreDocumentName: 1.4
-  firestoreAddDocument: 1.5
+  AddCollection: 
+  AddDocument: 1.5
 --- !u!1 &397881697
 GameObject:
   m_ObjectHideFlags: 0
@@ -1776,7 +1775,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_HorizontalAlignment: 1
+  m_HorizontalAlignment: 8
   m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
@@ -2170,15 +2169,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5513341773210212363, guid: 129475b6332ec524e83d9d073efb7df3, type: 3}
-        m_TargetAssemblyTypeName: BackButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: Loadscene, Assembly-CSharp
         m_MethodName: GoBack
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 1.1
+          m_StringArgument: 1.1.4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &572962357
@@ -2511,15 +2510,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5513341773210212363, guid: 129475b6332ec524e83d9d073efb7df3, type: 3}
-        m_TargetAssemblyTypeName: BackButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: Loadscene, Assembly-CSharp
         m_MethodName: GoBack
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 1.1
+          m_StringArgument: 1.4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &616099186
@@ -3425,15 +3424,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5513341773210212363, guid: 129475b6332ec524e83d9d073efb7df3, type: 3}
-        m_TargetAssemblyTypeName: SceneLoader, Assembly-CSharp
+        m_TargetAssemblyTypeName: Loadscene, Assembly-CSharp
         m_MethodName: GoBack
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 1.1
+          m_StringArgument: 1.4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1051608621
@@ -3865,15 +3864,15 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5513341773210212363, guid: 129475b6332ec524e83d9d073efb7df3, type: 3}
-        m_TargetAssemblyTypeName: BackButton, Assembly-CSharp
+        m_TargetAssemblyTypeName: Loadscene, Assembly-CSharp
         m_MethodName: GoBack
-        m_Mode: 1
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 1.1
+          m_StringArgument: 1.4
           m_BoolArgument: 0
         m_CallState: 2
 --- !u!114 &1117192342
